@@ -20,7 +20,8 @@ body {
     min-height: 100vh;
     color: var(--text-color);
     margin: 0;
-    padding-top: 5rem; /* Ajuste inicial para el espacio del navbar */
+    padding-top: 5rem;
+    /* Ajuste inicial para el espacio del navbar */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,11 +42,13 @@ body {
     justify-content: space-between;
     z-index: 10;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    height: 4rem; /* Ajusta a la altura real de tu navbar */
+    height: 4rem;
+    /* Ajusta a la altura real de tu navbar */
 }
 
 .navbar-brand img {
-    height: 3rem; /* Ajusta el tamaño del logo si es necesario */
+    height: 3rem;
+    /* Ajusta el tamaño del logo si es necesario */
     display: block;
 }
 
@@ -58,14 +61,17 @@ body {
     color: var(--text-color) !important;
     margin-right: 1rem;
     font-size: 1rem;
-    position: relative; /* Necesario para posicionar la pseudo-clase */
-    text-decoration: none; /* Removemos el underline inicial */
+    position: relative;
+    /* Necesario para posicionar la pseudo-clase */
+    text-decoration: none;
+    /* Removemos el underline inicial */
 }
 
 .nav-link::before {
     content: '';
     position: absolute;
-    bottom: -2px; /* Ajusta la distancia desde el texto */
+    bottom: -2px;
+    /* Ajusta la distancia desde el texto */
     left: 0;
     width: 0%;
     height: 2px;
@@ -125,7 +131,7 @@ main {
     align-self: stretch;
 }
 
-main > .glass:nth-child(even) {
+main>.glass:nth-child(even) {
     background-color: var(--glass-bg-alt);
 }
 
@@ -133,22 +139,26 @@ main > .glass:nth-child(even) {
     align-self: flex-start;
     width: 70%;
     transform: none;
-    margin-top: 5rem; /* Ajuste para no quedar pegado al navbar */
-    scroll-margin-top: 5rem; /* Igual o mayor que la altura del navbar */
+    margin-top: 5rem;
+    /* Ajuste para no quedar pegado al navbar */
+    scroll-margin-top: 5rem;
+    /* Igual o mayor que la altura del navbar */
 }
 
 #projects {
     align-self: center;
     width: 80%;
     transform: none;
-    scroll-margin-top: 5rem; /* Igual o mayor que la altura del navbar */
+    scroll-margin-top: 5rem;
+    /* Igual o mayor que la altura del navbar */
 }
 
 #experience {
     align-self: flex-end;
     width: 75%;
     transform: none;
-    scroll-margin-top: 5rem; /* Igual o mayor que la altura del navbar */
+    scroll-margin-top: 5rem;
+    /* Igual o mayor que la altura del navbar */
 }
 
 #education {
@@ -160,7 +170,8 @@ main > .glass:nth-child(even) {
     justify-content: space-between;
     padding: 2rem;
     flex-direction: row;
-    scroll-margin-top: 5rem; /* Igual o mayor que la altura del navbar */
+    scroll-margin-top: 5rem;
+    /* Igual o mayor que la altura del navbar */
 }
 
 .education-container {
@@ -182,7 +193,8 @@ main > .glass:nth-child(even) {
     justify-content: space-between;
     padding: 2rem;
     flex-direction: row;
-    scroll-margin-top: 5rem; /* Igual o mayor que la altura del navbar */
+    scroll-margin-top: 5rem;
+    /* Igual o mayor que la altura del navbar */
 }
 
 .skills-container {
@@ -196,12 +208,15 @@ main > .glass:nth-child(even) {
 }
 
 .contact-form {
-    align-self: center; /* Centrar el formulario */
-    width: 85%; /* Ajustar el ancho si es necesario */
+    align-self: center;
+    /* Centrar el formulario */
+    width: 85%;
+    /* Ajustar el ancho si es necesario */
     transform: none;
     margin-top: 3rem;
     margin-bottom: 3rem;
-    scroll-margin-top: 5rem; /* Igual o mayor que la altura del navbar */
+    scroll-margin-top: 5rem;
+    /* Igual o mayor que la altura del navbar */
 }
 
 #contact-info {
@@ -210,7 +225,8 @@ main > .glass:nth-child(even) {
     transform: none;
     margin-top: 3rem;
     margin-bottom: 3rem;
-    scroll-margin-top: 5rem; /* Igual o mayor que la altura del navbar */
+    scroll-margin-top: 5rem;
+    /* Igual o mayor que la altura del navbar */
 }
 
 h2 {
@@ -277,7 +293,8 @@ h2 {
     font-size: 0.9rem;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
     width: 100%;
     padding: 0.4rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -412,14 +429,16 @@ h2 {
     #experience,
     #education,
     #skills,
-    .contact-form, /* Añadido para mobile */
+    .contact-form,
+    /* Añadido para mobile */
     #contact-info {
         width: 100%;
         transform: none !important;
         margin-top: 2rem;
         margin-bottom: 2rem;
         align-self: center;
-        scroll-margin-top: 4rem; /* Ajusta según la altura del navbar en mobile */
+        scroll-margin-top: 4rem;
+        /* Ajusta según la altura del navbar en mobile */
     }
 
     h2 {
@@ -479,11 +498,13 @@ h2 {
     #experience,
     #education,
     #skills,
-    .contact-form, /* Añadido para tablet */
+    .contact-form,
+    /* Añadido para tablet */
     #contact-info {
         width: 95%;
         transform: none !important;
-        scroll-margin-top: 4rem; /* Ajusta según la altura del navbar en tablet si es diferente */
+        scroll-margin-top: 4rem;
+        /* Ajusta según la altura del navbar en tablet si es diferente */
     }
 
     h2 {
@@ -533,6 +554,6 @@ h2 {
     border-radius: 0.5rem;
 }
 
-#contact-info .contact-form > * {
+#contact-info .contact-form>* {
     transform: none;
 }
