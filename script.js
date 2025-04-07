@@ -96,7 +96,11 @@ const translations = {
         emailSentErrorTitle: "¡Oops!",
         emailSentErrorText: "Error al enviar el mensaje. Intenta nuevamente.",
         emailSentErrorButton: "Cerrar",
-        emailSentErrorResult: "Error al enviar el mensaje."
+        emailSentErrorResult: "Error al enviar el mensaje.",
+        validationNameRequired: "Por favor, ingresa tu nombre.",
+        validationEmailRequired: "Por favor, ingresa tu correo electrónico.",
+        validationEmailInvalid: "Por favor, ingresa un correo electrónico válido.",
+        validationMessageRequired: "Por favor, ingresa tu mensaje."
     },
     en: {
         home: "Home",
@@ -162,7 +166,11 @@ const translations = {
         emailSentErrorTitle: "Oops!",
         emailSentErrorText: "Error sending the message. Please try again.",
         emailSentErrorButton: "Close",
-        emailSentErrorResult: "Error sending the message."
+        emailSentErrorResult: "Error sending the message.",
+        validationNameRequired: "Please enter your name.",
+        validationEmailRequired: "Please enter your email address.",
+        validationEmailInvalid: "Please enter a valid email address.",
+        validationMessageRequired: "Please enter your message."
     }
 };
 
@@ -191,66 +199,123 @@ function setupContactForm(lang) {
     contactForm.removeEventListener('submit', handleContactSubmit);
     contactForm.addEventListener('submit', handleContactSubmit);
 
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
     function handleContactSubmit(event) {
         event.preventDefault();
 
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const topic = document.getElementById('topic').value;
-        const message = document.getElementById('message').value;
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
 
-        const templateParamsToAdmin = {
-            name: name,
-            email: email,
-            topic: topic,
-            message: message,
-        };
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const topic = document.getElementById('topic').value.trim();
+        const message = messageInput.value.trim();
 
-        const serviceID = "IrcI4r4feXZP75k0a";
-        let templateIDToAdmin = "";
+        let isValid = true;
 
-        if (lang === 'es') {
-            templateIDToAdmin = "template_sibbg7f";
-        } else if (lang === 'en') {
-            templateIDToAdmin = "template_wh14meh";
-        } else {
-            console.error("Idioma no soportado para el envío de correo.");
+        if (!name) {
+            Swal.fire({
+                icon: 'warning',
+                title: translations[lang]['emailSentErrorTitle'],
+                text: translations[lang]['validationNameRequired'],
+                confirmButtonText: translations[lang]['emailSentErrorButton']
+            });
+            isValid = false;
             return;
         }
 
-        emailjs.send("service_lui5xao", templateIDToAdmin, templateParamsToAdmin)
-            .then((responseAdmin) => {
-                console.log('Correo al administrador enviado!', responseAdmin.status, responseAdmin.text);
-
-                Swal.fire({
-                    icon: 'success',
-                    title: translations[lang]['emailSentSuccessTitle'],
-                    text: translations[lang]['emailSentSuccessText'],
-                    confirmButtonText: translations[lang]['emailSentSuccessButton']
-                });
-
-                const resultMessage = document.getElementById('resultMessage');
-                resultMessage.innerText = translations[lang]['emailSentSuccessResult'];
-                resultMessage.style.display = 'block';
-
-                document.getElementById('name').value = '';
-                document.getElementById('email').value = '';
-                document.getElementById('topic').value = '';
-                document.getElementById('message').value = '';
-            })
-            .catch((error) => {
-                console.error('Error al enviar:', error);
-
-                Swal.fire({
-                    icon: 'error',
-                    title: translations[lang]['emailSentErrorTitle'],
-                    text: translations[lang]['emailSentErrorText'],
-                    confirmButtonText: translations[lang]['emailSentErrorButton']
-                });
-
-                const resultMessage = document.getElementById('resultMessage');
-                resultMessage.innerText = translations[lang]['emailSentErrorResult'];
-                resultMessage.style.display = 'block';
+        if (!email) {
+            Swal.fire({
+                icon: 'warning',
+                title: translations[lang]['emailSentErrorTitle'],
+                text: translations[lang]['validationEmailRequired'],
+                confirmButtonText: translations[lang]['emailSentErrorButton']
             });
+            isValid = false;
+            return;
+        }
+
+        if (!isValidEmail(email)) {
+            Swal.fire({
+                icon: 'warning',
+                title: translations[lang]['emailSentErrorTitle'],
+                text: translations[lang]['validationEmailInvalid'],
+                confirmButtonText: translations[lang]['emailSentErrorButton']
+            });
+            isValid = false;
+            return;
+        }
+
+        if (!message) {
+            Swal.fire({
+                icon: 'warning',
+                title: translations[lang]['emailSentErrorTitle'],
+                text: translations[lang]['validationMessageRequired'],
+                confirmButtonText: translations[lang]['emailSentErrorButton']
+            });
+            isValid = false;
+            return;
+        }
+
+        if (isValid) {
+            const templateParamsToAdmin = {
+                name: name,
+                email: email,
+                topic: topic,
+                message: message,
+            };
+
+            const serviceID = "service_lui5xao";
+            let templateIDToAdmin = "";
+
+            if (lang === 'es') {
+                templateIDToAdmin = "template_sibbg7f";
+            } else if (lang === 'en') {
+                templateIDToAdmin = "template_wh14meh";
+            } else {
+                console.error("Idioma no soportado para el envío de correo.");
+                return;
+            }
+
+            emailjs.send(serviceID, templateIDToAdmin, templateParamsToAdmin)
+                .then((responseAdmin) => {
+                    console.log('Correo al administrador enviado!', responseAdmin.status, responseAdmin.text);
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: translations[lang]['emailSentSuccessTitle'],
+                        text: translations[lang]['emailSentSuccessText'],
+                        confirmButtonText: translations[lang]['emailSentSuccessButton']
+                    });
+
+                    const resultMessage = document.getElementById('resultMessage');
+                    resultMessage.innerText = translations[lang]['emailSentSuccessResult'];
+                    resultMessage.style.display = 'block';
+
+                    nameInput.value = '';
+                    emailInput.value = '';
+                    document.getElementById('topic').value = '';
+                    messageInput.value = '';
+                })
+                .catch((error) => {
+                    console.error('Error al enviar:', error);
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: translations[lang]['emailSentErrorTitle'],
+                        text: translations[lang]['emailSentErrorText'],
+                        confirmButtonText: translations[lang]['emailSentErrorButton']
+                    });
+
+                    const resultMessage = document.getElementById('resultMessage');
+                    resultMessage.innerText = translations[lang]['emailSentErrorResult'];
+                    resultMessage.style.display = 'block';
+                });
+        }
     }
 }

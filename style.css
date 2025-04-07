@@ -7,6 +7,7 @@
     --section-separator-color: rgba(255, 255, 255, 0.15);
     --glass-bg: rgba(255, 255, 255, 0.1);
     --glass-bg-alt: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.25);
 }
 
 html {
@@ -19,7 +20,7 @@ body {
     min-height: 100vh;
     color: var(--text-color);
     margin: 0;
-    padding-top: 5rem;
+    padding-top: 5rem; /* Ajuste inicial para el espacio del navbar */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,10 +41,11 @@ body {
     justify-content: space-between;
     z-index: 10;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    height: 4rem; /* Ajusta a la altura real de tu navbar */
 }
 
 .navbar-brand img {
-    height: 6rem;
+    height: 3rem; /* Ajusta el tamaño del logo si es necesario */
     display: block;
 }
 
@@ -56,12 +58,27 @@ body {
     color: var(--text-color) !important;
     margin-right: 1rem;
     font-size: 1rem;
-    transition: color 0.3s ease;
+    position: relative; /* Necesario para posicionar la pseudo-clase */
+    text-decoration: none; /* Removemos el underline inicial */
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Ajusta la distancia desde el texto */
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-out;
+}
+
+.nav-link:hover::before {
+    width: 100%;
 }
 
 .nav-link:hover {
     color: var(--primary-color) !important;
-    text-decoration: underline;
 }
 
 .lang-btn {
@@ -95,15 +112,17 @@ main {
 
 .glass {
     border-radius: 0.9375rem;
-    padding: 2rem;
-    margin-top: 6rem;
-    margin-bottom: 6rem;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
     transition: all 0.3s ease;
     position: relative;
     background: var(--glass-bg);
     backdrop-filter: blur(0.5rem);
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
-    border: 0.0625rem solid rgba(255, 255, 255, 0.2);
+    border: 0.0625rem solid var(--glass-border);
+    width: 90%;
+    align-self: stretch;
 }
 
 main > .glass:nth-child(even) {
@@ -113,31 +132,35 @@ main > .glass:nth-child(even) {
 #intro {
     align-self: flex-start;
     width: 70%;
-    transform: translateY(2rem) rotate(-3deg);
-    background-color: var(--glass-bg);
-    margin-top: 7rem;
+    transform: none;
+    margin-top: 5rem; /* Ajuste para no quedar pegado al navbar */
+    scroll-margin-top: 5rem; /* Igual o mayor que la altura del navbar */
 }
 
 #projects {
     align-self: center;
     width: 80%;
-    transform: translateY(-1rem) rotate(2deg);
+    transform: none;
+    scroll-margin-top: 5rem; /* Igual o mayor que la altura del navbar */
 }
 
 #experience {
     align-self: flex-end;
     width: 75%;
-    transform: translateY(3rem) rotate(4deg);
+    transform: none;
+    scroll-margin-top: 5rem; /* Igual o mayor que la altura del navbar */
 }
 
 #education {
     align-self: flex-start;
     width: 65%;
-    transform: translateY(-2rem) rotate(-2deg);
+    transform: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 2rem;
+    flex-direction: row;
+    scroll-margin-top: 5rem; /* Igual o mayor que la altura del navbar */
 }
 
 .education-container {
@@ -153,11 +176,13 @@ main > .glass:nth-child(even) {
 #skills {
     align-self: center;
     width: 90%;
-    transform: translateY(1.5rem) rotate(3deg);
+    transform: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 2rem;
+    flex-direction: row;
+    scroll-margin-top: 5rem; /* Igual o mayor que la altura del navbar */
 }
 
 .skills-container {
@@ -170,12 +195,22 @@ main > .glass:nth-child(even) {
     height: auto;
 }
 
+.contact-form {
+    align-self: center; /* Centrar el formulario */
+    width: 85%; /* Ajustar el ancho si es necesario */
+    transform: none;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    scroll-margin-top: 5rem; /* Igual o mayor que la altura del navbar */
+}
+
 #contact-info {
     align-self: flex-end;
     width: 85%;
-    margin-top: 6rem;
-    margin-bottom: 6rem;
-    transform: translateY(-2.5rem) rotate(-4deg);
+    transform: none;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    scroll-margin-top: 5rem; /* Igual o mayor que la altura del navbar */
 }
 
 h2 {
@@ -188,8 +223,8 @@ h2 {
 }
 
 #projects {
-    margin-top: 6rem;
-    margin-bottom: 6rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 #projectCarousel {
@@ -221,52 +256,46 @@ h2 {
     background-color: var(--primary-hover);
 }
 
-.contact-form {
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 2rem;
-    border-radius: 0.5rem;
-    margin-top: 6rem;
-    margin-bottom: 6rem;
-    width: 100%;
-    max-width: 30rem;
-    text-align: left;
-}
-
 .contact-form h2 {
     text-align: left;
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
 }
 
 .contact-form form {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 .contact-form .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 .contact-form label {
     display: block;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.2rem;
     color: var(--text-color);
+    font-size: 0.9rem;
 }
 
 .contact-form input, .contact-form textarea {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.4rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 0.3rem;
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--text-color);
+    font-size: 0.9rem;
 }
 
 .contact-form button {
     background-color: var(--primary-color);
     border: none;
     color: white;
-    padding: 0.7rem 1.5rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 0.3rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: 0.9rem;
 }
 
 .contact-form button:hover {
@@ -275,8 +304,8 @@ h2 {
 
 #experience,
 #education {
-    margin-top: 6rem;
-    margin-bottom: 6rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 .experience-item p,
@@ -285,10 +314,10 @@ h2 {
 #intro p,
 .contact-form p,
 .carousel-caption p,
-.section-description { 
-    font-size: 1.1rem; 
-    opacity: 0.85; 
-    line-height: 1.6; 
+.section-description {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    line-height: 1.6;
 }
 
 .experience-item h3,
@@ -371,9 +400,11 @@ h2 {
     }
 
     .glass {
-        padding: 1.5rem;
-        margin-top: 4rem;
-        margin-bottom: 4rem;
+        padding: 1.2rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        width: 100%;
+        align-self: center !important;
     }
 
     #intro,
@@ -381,16 +412,19 @@ h2 {
     #experience,
     #education,
     #skills,
+    .contact-form, /* Añadido para mobile */
     #contact-info {
         width: 100%;
         transform: none !important;
-        margin-top: 3rem;
-        margin-bottom: 3rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        align-self: center;
+        scroll-margin-top: 4rem; /* Ajusta según la altura del navbar en mobile */
     }
 
     h2 {
-        font-size: 2.2rem;
-        margin-bottom: 1.5rem;
+        font-size: 2rem;
+        margin-bottom: 1.2rem;
         text-align: center;
     }
 
@@ -401,27 +435,28 @@ h2 {
 
     .skills-container {
         margin-right: 0;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.2rem;
         text-align: center;
     }
 
     .lottie-skills-container {
-        width: 150px;
+        width: 120px;
     }
 
     #education {
         flex-direction: column;
         align-items: center;
+        flex-direction: column;
     }
 
     .education-container {
         margin-right: 0;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.2rem;
         text-align: center;
     }
 
     .lottie-education-container {
-        width: 120px;
+        width: 100px;
     }
 
     .contact-icons {
@@ -434,23 +469,25 @@ h2 {
         width: 90%;
     }
 
+    .glass {
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+
     #intro,
     #projects,
     #experience,
     #education,
     #skills,
+    .contact-form, /* Añadido para tablet */
     #contact-info {
-        width: 90%;
+        width: 95%;
         transform: none !important;
+        scroll-margin-top: 4rem; /* Ajusta según la altura del navbar en tablet si es diferente */
     }
 
     h2 {
-        font-size: 2.5rem;
-    }
-
-    .glass {
-        margin-top: 5rem;
-        margin-bottom: 5rem;
+        font-size: 2.2rem;
     }
 }
 
@@ -468,8 +505,9 @@ h2 {
 .section-description {
     color: var(--text-color);
     opacity: 0.7;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     text-align: center;
+    font-size: 1rem;
 }
 
 .experience-item,
@@ -478,23 +516,23 @@ h2 {
     border-radius: 0.5rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background-color: rgba(255, 255, 255, 0.05);
-    padding: 1.2rem;
-    margin-bottom: 1.8rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .experience-item:last-child,
 .education-item:last-child,
 .skills-item:last-child {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 
 #contact-info .contact-form {
-    transform: skewY(-2deg);
-    padding: 2.5rem;
-    border-radius: 0.7rem;
+    transform: none;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
 }
 
 #contact-info .contact-form > * {
-    transform: skewY(2deg); 
+    transform: none;
 }
