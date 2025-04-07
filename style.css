@@ -19,7 +19,7 @@ body {
     min-height: 100vh;
     color: var(--text-color);
     margin: 0;
-    padding-top: 5rem; /* Mantenemos este padding para el espacio inicial debajo del navbar */
+    padding-top: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -96,7 +96,6 @@ main {
 .glass {
     border-radius: 0.9375rem;
     padding: 2rem;
-    /* Aumentamos aún más los márgenes verticales */
     margin-top: 6rem;
     margin-bottom: 6rem;
     transition: all 0.3s ease;
@@ -107,18 +106,16 @@ main {
     border: 0.0625rem solid rgba(255, 255, 255, 0.2);
 }
 
-/* Aplicando el fondo alternativo a las secciones pares */
 main > .glass:nth-child(even) {
     background-color: var(--glass-bg-alt);
 }
 
-/* Aumentamos el margen superior de la primera sección (#intro) */
 #intro {
     align-self: flex-start;
     width: 70%;
     transform: translateY(2rem) rotate(-3deg);
     background-color: var(--glass-bg);
-    margin-top: 7rem; /* Aumentamos el margen superior */
+    margin-top: 7rem;
 }
 
 #projects {
@@ -153,26 +150,6 @@ main > .glass:nth-child(even) {
     height: auto;
 }
 
-.lottie-education-container lottie-player {
-    width: 100%;
-    height: 100%;
-}
-
-.education-item {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.education-item:last-child {
-    border-bottom: none;
-}
-
-.education-item h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.3rem;
-}
-
 #skills {
     align-self: center;
     width: 90%;
@@ -191,26 +168,6 @@ main > .glass:nth-child(even) {
 .lottie-skills-container {
     width: 200px;
     height: auto;
-}
-
-.lottie-skills-container lottie-player {
-    width: 100%;
-    height: 100%;
-}
-
-.skills-item {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.skills-item:last-child {
-    border-bottom: none;
-}
-
-.skills-item h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.3rem;
 }
 
 #contact-info {
@@ -235,15 +192,21 @@ h2 {
     margin-bottom: 6rem;
 }
 
+#projectCarousel {
+    border-radius: 0.9375rem;
+    overflow: hidden;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
 #projectCarousel .carousel-inner img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
+    border-radius: 0;
+    clip-path: none;
 }
 
 .carousel-caption {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 1rem;
+    color: var(--primary-color);
 }
 
 .btn-primary {
@@ -316,12 +279,16 @@ h2 {
     margin-bottom: 6rem;
 }
 
-.experience-item,
-.education-item,
-.skills-item {
-    margin-bottom: 2rem;
-    padding: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.experience-item p,
+.education-item p,
+.skills-item p,
+#intro p,
+.contact-form p,
+.carousel-caption p,
+.section-description { 
+    font-size: 1.1rem; 
+    opacity: 0.85; 
+    line-height: 1.6; 
 }
 
 .experience-item h3,
@@ -405,7 +372,6 @@ h2 {
 
     .glass {
         padding: 1.5rem;
-        /* Ajustamos los márgenes para pantallas pequeñas */
         margin-top: 4rem;
         margin-bottom: 4rem;
     }
@@ -504,4 +470,31 @@ h2 {
     opacity: 0.7;
     margin-bottom: 1.5rem;
     text-align: center;
+}
+
+.experience-item,
+.education-item,
+.skills-item {
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1.2rem;
+    margin-bottom: 1.8rem;
+}
+
+.experience-item:last-child,
+.education-item:last-child,
+.skills-item:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+
+#contact-info .contact-form {
+    transform: skewY(-2deg);
+    padding: 2.5rem;
+    border-radius: 0.7rem;
+}
+
+#contact-info .contact-form > * {
+    transform: skewY(2deg); 
 }
