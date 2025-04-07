@@ -22,7 +22,6 @@ body {
     align-items: center;
 }
 
-/* Estilos de la barra de navegación mejorada */
 .navbar {
     width: 100%;
     position: fixed;
@@ -62,7 +61,6 @@ body {
     text-decoration: underline;
 }
 
-/* Estilos mejorados para los botones de idioma */
 .lang-btn {
     background: rgba(255, 255, 255, 0.2);
     border: none;
@@ -139,6 +137,40 @@ main {
     align-self: flex-start;
     width: 65%;
     transform: translateY(-2rem) rotate(-2deg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.education-container {
+    flex-grow: 1;
+    margin-right: 2rem;
+}
+
+.lottie-education-container {
+    width: 150px;
+    height: auto;
+}
+
+.lottie-education-container lottie-player {
+    width: 100%;
+    height: 100%;
+}
+
+.education-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.education-item:last-child {
+    border-bottom: none;
+}
+
+.education-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
 }
 
 #skills {
@@ -149,6 +181,40 @@ main {
     align-self: center;
     width: 90%;
     transform: translateY(1.5rem) rotate(3deg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.skills-container {
+    flex-grow: 1;
+    margin-right: 2rem;
+}
+
+.lottie-skills-container {
+    width: 200px;
+    height: auto;
+}
+
+.lottie-skills-container lottie-player {
+    width: 100%;
+    height: 100%;
+}
+
+.skills-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skills-item:last-child {
+    border-bottom: none;
+}
+
+.skills-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
 }
 
 #contact-info {
@@ -252,18 +318,23 @@ h2 {
     background-color: var(--primary-hover);
 }
 
-#experience, #education, #skills {
+#experience,
+#education {
     margin-top: 4rem;
     margin-bottom: 4rem;
 }
 
-.experience-item, .education-item, .skills-item {
+.experience-item,
+.education-item,
+.skills-item {
     margin-bottom: 2rem;
     padding: 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.experience-item h3, .education-item h3, .skills-item h3 {
+.experience-item h3,
+.education-item h3,
+.skills-item h3 {
     color: var(--primary-color);
     margin-bottom: 0.5rem;
 }
@@ -314,8 +385,8 @@ h2 {
 }
 
 #contact-info .contact-icons svg {
-    width: 2.5rem; /* Ajuste para igualar el tamaño */
-    height: 2.5rem; /* Ajuste para igualar el tamaño */
+    width: 2.5rem;
+    height: 2.5rem;
     display: block;
     fill: var(--text-color);
     transition: fill 0.3s ease;
@@ -326,7 +397,106 @@ h2 {
 }
 
 #downloadCVLink {
-    margin-top: 2rem; /* Espacio entre los iconos y el botón */
+    margin-top: 2rem;
     display: block;
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 4rem;
+    }
+
+    main {
+        width: 95%;
+    }
+
+    .glass {
+        padding: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    #intro,
+    #projects,
+    #experience,
+    #education,
+    #skills,
+    #contact-info {
+        width: 100%;
+        transform: none !important;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    #skills {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skills-container {
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .lottie-skills-container {
+        width: 150px;
+    }
+
+    #education {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .education-container {
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .lottie-education-container {
+        width: 120px;
+    }
+
+    .contact-icons {
+        justify-content: center;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    main {
+        width: 90%;
+    }
+
+    #intro,
+    #projects,
+    #experience,
+    #education,
+    #skills,
+    #contact-info {
+        width: 90%;
+        transform: none !important;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(20px); 
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+}
+
+.hidden.show {
+    opacity: 1;
+    transform: translateY(0); 
 }

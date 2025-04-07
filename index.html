@@ -1,176 +1,282 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portafolio Andrés Segura</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0Hhonpy0AIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0Hhonpy0AIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
-        (function(){
+        (function () {
             emailjs.init("IrcI4r4feXZP75k0a");
         })();
     </script>
 </head>
-<body>
+
+<>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="logo.png" alt="Logo">
+                    <img src="logo.png" alt="Logo" />
                 </a>
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#intro" data-lang="about">Sobre mí</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects" data-lang="projects">Proyectos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience" data-lang="experience">Experiencia</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#education" data-lang="education">Educación</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills" data-lang="skills">Habilidades</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact-info" data-lang="contact">Contacto</a></li>
-                </ul>
-                <div class="d-flex">
-                    <button class="lang-btn" onclick="changeLanguage('es')">ES</button>
-                    <button class="lang-btn" onclick="changeLanguage('en')">ENG</button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#intro" data-lang="about">Sobre mí</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projects" data-lang="projects">Proyectos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#experience" data-lang="experience">Experiencia</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#education" data-lang="education">Educación</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#skills" data-lang="skills">Habilidades</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact-info" data-lang="contact">Contacto</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <button class="lang-btn" onclick="changeLanguage('es')">ES</button>
+                        <button class="lang-btn" onclick="changeLanguage('en')">ENG</button>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
 
     <main>
-        <section id="intro" class="glass">
-            <h2 class="greeting" data-lang="greeting">¡Hola, soy Andrés Segura Calderón!</h2>
-            <p class="intro" data-lang="intro">Desarrollador full-stack con experiencia en Java, Python, C#, .NET y bases de datos SQL y NoSQL. Experiencia en tecnologías frontend como HTML, CSS, JavaScript y React, además de pruebas de software manuales y automatizadas con Selenium y PyCharm.</p>
+        <section id="intro" class="glass hidden">
+            <h2 class="greeting" data-lang="greeting">
+                ¡Hola, soy Andrés Segura Calderón!
+            </h2>
+            <p class="intro" data-lang="intro">
+                Desarrollador full-stack con experiencia en Java, Python, C#, .NET y
+                bases de datos SQL y NoSQL. Experiencia en tecnologías frontend como
+                HTML, CSS, JavaScript y React, además de pruebas de software manuales
+                y automatizadas con Selenium y PyCharm.
+            </p>
         </section>
 
-        <section id="projects" class="glass">
-            <h2 class="text-center" data-lang="projectsTitle">Proyectos Destacados</h2>
+        <section id="projects" class="glass hidden">
+            <h2 class="text-center" data-lang="projectsTitle">
+                Proyectos Destacados
+            </h2>
             <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="Medallero.png" class="d-block w-100" alt="Medallero">
+                        <img src="Medallero.png" class="d-block w-100" alt="Medallero" />
                         <div class="carousel-caption d-none d-md-block">
                             <h5 data-lang="project1Title">Medallero</h5>
-                            <p data-lang="project1Desc">Aplicación para gestionar medalleros en eventos deportivos.</p>
-                            <a href="https://github.com/AndresSC25/Portfolio/tree/main/Medallero%20Olimpico" class="btn btn-primary" data-lang="githubLink">Ver en GitHub</a>
+                            <p data-lang="project1Desc">
+                                Aplicación para gestionar medalleros en eventos deportivos.
+                            </p>
+                            <a href="https://github.com/AndresSC25/Portfolio/tree/main/Medallero%20Olimpico"
+                                class="btn btn-primary" data-lang="githubLink">Ver en GitHub</a>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="SiluetaClub.png" class="d-block w-100" alt="SiluetaClub">
+                        <img src="SiluetaClub.png" class="d-block w-100" alt="SiluetaClub" />
                         <div class="carousel-caption d-none d-md-block">
                             <h5 data-lang="project2Title">Silueta Club</h5>
-                            <p data-lang="project2Desc">Plataforma para gestión de miembros y eventos de un club deportivo.</p>
-                            <a href="https://github.com/AndresSC25/Portfolio/tree/main/Gym-Frontend" class="btn btn-primary" data-lang="githubLink">Ver en GitHub</a>
+                            <p data-lang="project2Desc">
+                                Plataforma para gestión de miembros y eventos de un club
+                                deportivo.
+                            </p>
+                            <a href="https://github.com/AndresSC25/Portfolio/tree/main/Gym-Frontend"
+                                class="btn btn-primary" data-lang="githubLink">Ver en GitHub</a>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="EstructurasDatos.png" class="d-block w-100" alt="EstructurasDatos">
+                        <img src="EstructurasDatos.png" class="d-block w-100" alt="EstructurasDatos" />
                         <div class="carousel-caption d-none d-md-block">
                             <h5 data-lang="project3Title">Estructuras de Datos</h5>
-                            <p data-lang="project3Desc">Implementaciones de diversas estructuras de datos en Java.</p>
-                            <a href="https://github.com/AndresSC25/Portfolio/tree/main/Proyecto_Estrucura_Datos" class="btn btn-primary" data-lang="githubLink">Ver en GitHub</a>
+                            <p data-lang="project3Desc">
+                                Implementaciones de diversas estructuras de datos en Java.
+                            </p>
+                            <a href="https://github.com/AndresSC25/Portfolio/tree/main/Proyecto_Estrucura_Datos"
+                                class="btn btn-primary" data-lang="githubLink">Ver en GitHub</a>
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel"
+                    data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel"
+                    data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
         </section>
 
-        <section id="experience" class="glass">
+        <section id="experience" class="glass hidden">
             <h2 data-lang="experienceTitle">Experiencia</h2>
             <div class="experience-item">
-                <h3 data-lang="experienceItem1Title">Proyecto Universitario: Sistema de Gestión para un Centro de Acondicionamiento Físico</h3>
-                <p data-lang="experienceItem1Desc">Diseño y desarrollo de una plataforma para la gestión de usuarios, servicios y reservas en un gimnasio. Implementación del back-end con .NET, C# y SQL. Creación del front-end utilizando HTML, CSS, JavaScript y Bootstrap. Aplicación de metodologías ágiles (Scrum) para la organización del desarrollo. Gestión del control de versiones con Git y despliegue en Azure para servicios en la nube.</p>
+                <h3 data-lang="experienceItem1Title">
+                    Proyecto Universitario: Sistema de Gestión para un Centro de
+                    Acondicionamiento Físico
+                </h3>
+                <p data-lang="experienceItem1Desc">
+                    Diseño y desarrollo de una plataforma para la gestión de usuarios,
+                    servicios y reservas en un gimnasio. Implementación del back-end con
+                    .NET, C# y SQL. Creación del front-end utilizando HTML, CSS,
+                    JavaScript y Bootstrap. Aplicación de metodologías ágiles (Scrum)
+                    para la organización del desarrollo. Gestión del control de
+                    versiones con Git y despliegue en Azure para servicios en la nube.
+                </p>
             </div>
             <div class="experience-item">
-                <h3 data-lang="experienceItem2Title">Proyecto Universitario: Sistema de Bolsa de Empleo para uso Generalizado</h3>
-                <p data-lang="experienceItem2Desc">Elaboración e implementación de una plataforma para conectar empresas con buscadores de empleo. Construcción del back-end con Node.js y MongoDB. Desarrollo del front-end utilizando HTML, CSS y JavaScript. Liderazgo del equipo como Scrum Master, organizando tareas y asegurando entregas a tiempo.</p>
+                <h3 data-lang="experienceItem2Title">
+                    Proyecto Universitario: Sistema de Bolsa de Empleo para uso
+                    Generalizado
+                </h3>
+                <p data-lang="experienceItem2Desc">
+                    Elaboración e implementación de una plataforma para conectar
+                    empresas con buscadores de empleo. Construcción del back-end con
+                    Node.js y MongoDB. Desarrollo del front-end utilizando HTML, CSS y
+                    JavaScript. Liderazgo del equipo como Scrum Master, organizando
+                    tareas y asegurando entregas a tiempo.
+                </p>
             </div>
         </section>
 
-        <section id="education" class="glass">
-            <h2 data-lang="educationTitle">Educación</h2>
-            <div class="education-item">
-                <h3 data-lang="educationItem1Title">Técnico Superior En Pruebas De Software</h3>
-                <p data-lang="educationItem1Desc">Universidad CENFOTEC 2021-2023</p>
+        <section id="education" class="glass hidden">
+            <div class="education-container"> <!- Nuevo contenedor -->
+                <h2 data-lang="educationTitle">Educación</h2>
+                <div class="education-item">
+                    <h3 data-lang="educationItem1Title">
+                        Técnico Superior En Pruebas De Software
+                    </h3>
+                    <p data-lang="educationItem1Desc">Universidad CENFOTEC 2021-2023</p>
+                </div>
+                <div class="education-item">
+                    <h3 data-lang="educationItem2Title">
+                        Bachillerato en Ingeniería del Software
+                    </h3>
+                    <p data-lang="educationItem2Desc">
+                        Universidad CENFOTEC 2023 - actualidad
+                    </p>
+                </div>
             </div>
-            <div class="education-item">
-                <h3 data-lang="educationItem2Title">Bachillerato en Ingeniería del Software</h3>
-                <p data-lang="educationItem2Desc">Universidad CENFOTEC 2023 - actualidad</p>
+            <div class="lottie-education-container"> <!- Contenedor para el Lottie -->
+                <lottie-player src="https://lottie.host/78c03aaf-5ef5-458e-b737-75c1efc263d3/HCfsOWxg7E.json" autoplay
+                    loop>
+                </lottie-player>
             </div>
         </section>
 
-        <section id="skills" class="glass">
-            <h2 data-lang="skillsTitle">Habilidades</h2>
-            <div class="skills-item">
-                <h3 data-lang="skillsItem1Title">Técnicas</h3>
-                <p data-lang="skillsItem1Desc">Front-end: HTML, CSS, Bootstrap, JavaScript, React. Back-end: SQL, MySQL, MongoDB, Java, Python, C#. Otras: GitHub, Scrum, Agile, Windows 365, Azure.</p>
+        <section id="skills" class="glass hidden">
+            <div class="skills-container"> <!- Nuevo contenedor ->
+                <h2 data-lang="skillsTitle">Habilidades</h2>
+                <div class="skills-item">
+                    <h3 data-lang="skillsItem1Title">Técnicas</h3>
+                    <p data-lang="skillsItem1Desc">
+                        Front-end: HTML, CSS, Bootstrap, JavaScript, React. Back-end: SQL,
+                        MySQL, MongoDB, Java, Python, C#. Otras: GitHub, Scrum, Agile,
+                        Windows 365, Azure.
+                    </p>
+                </div>
+                <div class="skills-item">
+                    <h3 data-lang="skillsItem2Title">Blandas</h3>
+                    <p data-lang="skillsItem2Desc">
+                        Liderazgo, Trabajo en equipo, Comunicación, Inteligencia emocional,
+                        Adaptación al cambio.
+                    </p>
+                </div>
             </div>
-            <div class="skills-item">
-                <h3 data-lang="skillsItem2Title">Blandas</h3>
-                <p data-lang="skillsItem2Desc">Liderazgo, Trabajo en equipo, Comunicación, Inteligencia emocional, Adaptación al cambio.</p>
+            <div class="lottie-skills-container"> <!- Contenedor para el Lottie ->
+                <lottie-player src="https://lottie.host/a169a64d-3779-4eea-b33f-e09750301c8a/9fWLbkUeda.json" autoplay
+                    loop>
+                </lottie-player>
             </div>
         </section>
 
-        <section class="contact-form glass">
+        <section class="contact-form glass hidden">
             <h2 data-lang="contactFormTitle">Formulario de Contacto</h2>
             <form id="contactForm">
                 <div class="form-group">
                     <label for="name" data-lang="nameLabel">Nombre</label>
-                    <input type="text" class="form-control" id="name" placeholder="Tu nombre" data-lang="namePlaceholder">
+                    <input type="text" class="form-control" id="name" placeholder="Tu nombre"
+                        data-lang="namePlaceholder" />
                 </div>
                 <div class="form-group">
                     <label for="email" data-lang="emailLabel">Correo</label>
-                    <input type="email" class="form-control" id="email" placeholder="Tu correo" data-lang="emailPlaceholder">
+                    <input type="email" class="form-control" id="email" placeholder="Tu correo"
+                        data-lang="emailPlaceholder" />
                 </div>
                 <div class="form-group">
                     <label for="topic" data-lang="topicLabel">Asunto</label>
-                    <input type="text" class="form-control" id="topic" placeholder="Asunto del mensaje" data-lang="topicPlaceholder">
+                    <input type="text" class="form-control" id="topic" placeholder="Asunto del mensaje"
+                        data-lang="topicPlaceholder" />
                 </div>
                 <div class="form-group">
                     <label for="message" data-lang="messageLabel">Mensaje</label>
-                    <textarea class="form-control" id="message" rows="5" placeholder="Tu mensaje" data-lang="messagePlaceholder"></textarea>
+                    <textarea class="form-control" id="message" rows="5" placeholder="Tu mensaje"
+                        data-lang="messagePlaceholder"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" data-lang="sendButton">Enviar</button>
+                <button type="submit" class="btn btn-primary" data-lang="sendButton">
+                    Enviar
+                </button>
             </form>
-            <div id="resultMessage" style="display:none; margin-top: 10px;"></div>
+            <div id="resultMessage" style="display: none; margin-top: 10px"></div>
         </section>
 
-        <section id="contact-info" class="glass">
+        <section id="contact-info" class="glass hidden">
             <h2 data-lang="contactInfoTitle">Información de Contacto</h2>
             <div class="contact-icons">
                 <a href="https://wa.me/+50685663503" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 50 50">
-                        <path d="M 25 2 C 12.3 2 2 12.3 2 25 C 2 29.1 3.1 32.899219 5 36.199219 L 2 46.699219 C 1.9 46.999219 1.9992187 47.399219 2.1992188 47.699219 C 2.4992187 47.999219 2.8992187 48 3.1992188 48 L 14.199219 45.300781 C 17.399219 47.000781 21.1 48 25 48 C 37.7 48 48 37.7 48 25 C 48 12.3 37.7 2 25 2 z M 25 4 C 36.6 4 46 13.4 46 25 C 46 36.6 36.6 46 25 46 C 21.3 46 17.800781 45.000781 14.800781 43.300781 C 14.600781 43.200781 14.299609 43.099219 14.099609 43.199219 L 4.5 45.599609 L 7 36.400391 C 7.1 36.100391 7.0003906 35.899609 6.9003906 35.599609 C 5.1003906 32.499609 4 28.9 4 25 C 4 13.4 13.4 4 25 4 z M 18.113281 12.988281 C 17.925781 12.975781 17.800781 13 17.800781 13 L 16.599609 13 C 15.999609 13 15.100781 13.2 14.300781 14 C 13.800781 14.5 12 16.3 12 19.5 C 12 22.9 14.299609 25.799609 14.599609 26.099609 C 14.599609 26.099609 15 26.600781 15.5 27.300781 C 16 28.000781 16.699609 28.800781 17.599609 29.800781 C 19.399609 31.700781 21.899609 33.899219 25.099609 35.199219 C 26.499609 35.799219 27.699609 36.2 28.599609 36.5 C 30.199609 37 31.700781 36.900781 32.800781 36.800781 C 33.600781 36.700781 34.500391 36.299219 35.400391 35.699219 C 36.300391 35.099219 37.199609 34.400391 37.599609 33.400391 C 37.899609 32.600391 37.999609 31.900781 38.099609 31.300781 L 38.099609 30.5 C 38.099609 30.2 38.000781 30.200781 37.800781 29.800781 C 37.300781 29.000781 36.799219 29.000781 36.199219 28.800781 C 35.899219 28.600781 34.999219 28.200781 34.199219 27.800781 C 33.299219 27.400781 32.599609 27.000781 32.099609 26.800781 C 31.799609 26.700781 31.400391 26.499609 30.900391 26.599609 C 30.400391 26.699609 29.899609 27 29.599609 27.5 C 29.299609 27.9 28.200781 29.299219 27.800781 29.699219 L 27.699219 29.599609 C 27.299219 29.399609 26.7 29.200781 26 28.800781 C 25.2 28.400781 24.299219 27.800781 23.199219 26.800781 C 21.599219 25.400781 20.499219 23.699609 20.199219 23.099609 C 20.499219 22.699609 20.899609 22.3 21.099609 22 C 21.199609 21.9 21.280859 21.799219 21.349609 21.699219 C 21.418359 21.599219 21.475391 21.500391 21.525391 21.400391 C 21.625391 21.200391 21.700781 21.000781 21.800781 20.800781 C 22.200781 20.100781 22.000781 19.300391 21.800781 18.900391 C 21.800781 18.900391 21.7 18.600781 21.5 18.300781 C 21.4 18.000781 21.2 17.499609 21 17.099609 C 20.6 16.199609 20.2 15.199609 20 14.599609 C 19.7 13.899609 19.300781 13.399219 18.800781 13.199219 C 18.550781 13.049219 18.300781 13.000781 18.113281 12.988281 z M 16.599609 15 L 17.699219 15 L 17.900391 15 C 17.900391 15 17.999609 15.100391 18.099609 15.400391 C 18.299609 16.000391 18.799609 17.000391 19.099609 17.900391 C 19.299609 18.300391 19.499609 18.799609 19.599609 19.099609 C 19.699609 19.399609 19.800391 19.600781 19.900391 19.800781 C 19.900391 19.900781 20 19.900391 20 19.900391 C 19.8 20.300391 19.8 20.399219 19.5 20.699219 C 19.2 21.099219 18.799219 21.499219 18.699219 21.699219 C 18.599219 21.899219 18.299609 22.1 18.099609 22.5 C 17.899609 22.9 18.000781 23.599609 18.300781 24.099609 C 18.700781 24.699609 19.900781 26.700391 21.800781 28.400391 C 23.000781 29.500391 24.1 30.199609 25 30.599609 C 25.9 31.099609 26.600781 31.300391 26.800781 31.400391 C 27.200781 31.600391 27.599609 31.699219 28.099609 31.699219 C 28.599609 31.699219 29.000781 31.3 29.300781 31 C 29.700781 30.6 30.699219 29.399609 31.199219 28.599609 L 31.400391 28.699219 C 31.400391 28.699219 31.699609 28.8 32.099609 29 C 32.499609 29.2 32.900391 29.399609 33.400391 29.599609 C 34.300391 29.999609 35.100391 30.399609 35.400391 30.599609 L 36 30.900391 L 36 31.199219 C 36 31.599219 35.899219 32.200781 35.699219 32.800781 C 35.599200 33.100781 35.000391 33.699609 34.400391 34.099609 C 33.700391 34.499609 32.899609 34.800391 32.599609 34.900391 C 31.699609 35.000391 30.600781 35.099219 29.300781 34.699219 C 28.500781 34.399219 27.4 34.1 26 33.5 C 23.2 32.3 20.899219 30.3 19.199219 28.5 C 18.399219 27.6 17.699219 26.799219 17.199219 26.199219 C 16.699219 25.599219 16.500781 25.2 16.300781 25 C 15.900781 24.6 14 21.999609 14 19.599609 C 14 17.099609 15.200781 16.100391 15.800781 15.400391 C 16.100781 15.000391 16.499609 15 16.599609 15 z"></path>
+                        <path
+                            d="M 25 2 C 12.3 2 2 12.3 2 25 C 2 29.1 3.1 32.899219 5 36.199219 L 2 46.699219 C 1.9 46.999219 1.9992187 47.399219 2.1992188 47.699219 C 2.4992187 47.999219 2.8992187 48 3.1992188 48 L 14.199219 45.300781 C 17.399219 47.000781 21.1 48 25 48 C 37.7 48 48 37.7 48 25 C 48 12.3 37.7 2 25 2 z M 25 4 C 36.6 4 46 13.4 46 25 C 46 36.6 36.6 46 25 46 C 21.3 46 17.800781 45.000781 14.800781 43.300781 C 14.600781 43.200781 14.299609 43.099219 14.099609 43.199219 L 4.5 45.599609 L 7 36.400391 C 7.1 36.100391 7.0003906 35.899609 6.9003906 35.599609 C 5.1003906 32.499609 4 28.9 4 25 C 4 13.4 13.4 4 25 4 z M 18.113281 12.988281 C 17.925781 12.975781 17.800781 13 17.800781 13 L 16.599609 13 C 15.999609 13 15.100781 13.2 14.300781 14 C 13.800781 14.5 12 16.3 12 19.5 C 12 22.9 14.299609 25.799609 14.599609 26.099609 C 14.599609 26.099609 15 26.600781 15.5 27.300781 C 16 28.000781 16.699609 28.800781 17.599609 29.800781 C 19.399609 31.700781 21.899609 33.899219 25.099609 35.199219 C 26.499609 35.799219 27.699609 36.2 28.599609 36.5 C 30.199609 37 31.700781 36.900781 32.800781 36.800781 C 33.600781 36.700781 34.500391 36.299219 35.400391 35.699219 C 36.300391 35.099219 37.199609 34.400391 37.599609 33.400391 C 37.899609 32.600391 37.999609 31.900781 38.099609 31.300781 L 38.099609 30.5 C 38.099609 30.2 38.000781 30.200781 37.800781 29.800781 C 37.300781 29.000781 36.799219 29.000781 36.199219 28.800781 C 35.899219 28.600781 34.999219 28.200781 34.199219 27.800781 C 33.299219 27.400781 32.599609 27.000781 32.099609 26.800781 C 31.799609 26.700781 31.400391 26.499609 30.900391 26.599609 C 30.400391 26.699609 29.899609 27 29.599609 27.5 C 29.299609 27.9 28.200781 29.299219 27.800781 29.699219 L 27.699219 29.599609 C 27.299219 29.399609 26.7 29.200781 26 28.800781 C 25.2 28.400781 24.299219 27.800781 23.199219 26.800781 C 21.599219 25.400781 20.499219 23.699609 20.199219 23.099609 C 20.499219 22.699609 20.899609 22.3 21.099609 22 C 21.199609 21.9 21.280859 21.799219 21.349609 21.699219 C 21.418359 21.599219 21.475391 21.500391 21.525391 21.400391 C 21.625391 21.200391 21.700781 21.000781 21.800781 20.800781 C 22.200781 20.100781 22.000781 19.300391 21.800781 18.900391 C 21.800781 18.900391 21.7 18.600781 21.5 18.300781 C 21.4 18.000781 21.2 17.499609 21 17.099609 C 20.6 16.199609 20.2 15.199609 20 14.599609 C 19.7 13.899609 19.300781 13.399219 18.800781 13.199219 C 18.550781 13.049219 18.300781 13.000781 18.113281 12.988281 z M 16.599609 15 L 17.699219 15 L 17.900391 15 C 17.900391 15 17.999609 15.100391 18.099609 15.400391 C 18.299609 16.000391 18.799609 17.000391 19.099609 17.900391 C 19.299609 18.300391 19.499609 18.799609 19.599609 19.099609 C 19.699609 19.399609 19.800391 19.600781 19.900391 19.800781 C 19.900391 19.900781 20 19.900391 20 19.900391 C 19.8 20.300391 19.8 20.399219 19.5 20.699219 C 19.2 21.099219 18.799219 21.499219 18.699219 21.699219 C 18.599219 21.899219 18.299609 22.1 18.099609 22.5 C 17.899609 22.9 18.000781 23.599609 18.300781 24.099609 C 18.700781 24.699609 19.900781 26.700391 21.800781 28.400391 C 23.000781 29.500391 24.1 30.199609 25 30.599609 C 25.9 31.099609 26.600781 31.300391 26.800781 31.400391 C 27.200781 31.600391 27.599609 31.699219 28.099609 31.699219 C 28.599609 31.699219 29.000781 31.3 29.300781 31 C 29.700781 30.6 30.699219 29.399609 31.199219 28.599609 L 31.400391 28.699219 C 31.400391 28.699219 31.699609 28.8 32.099609 29 C 32.499609 29.2 32.900391 29.399609 33.400391 29.599609 C 34.300391 29.999609 35.100391 30.399609 35.400391 30.599609 L 36 30.900391 L 36 31.199219 C 36 31.599219 35.899219 32.200781 35.699219 32.800781 C 35.599200 33.100781 35.000391 33.699609 34.400391 34.099609 C 33.700391 34.499609 32.899609 34.800391 32.599609 34.900391 C 31.699609 35.000391 30.600781 35.099219 29.300781 34.699219 C 28.500781 34.399219 27.4 34.1 26 33.5 C 23.2 32.3 20.899219 30.3 19.199219 28.5 C 18.399219 27.6 17.699219 26.799219 17.199219 26.199219 C 16.699219 25.599219 16.500781 25.2 16.300781 25 C 15.900781 24.6 14 21.999609 14 19.599609 C 14 17.099609 15.200781 16.100391 15.800781 15.400391 C 16.100781 15.000391 16.499609 15 16.599609 15 z">
+                        </path>
                     </svg>
                 </a>
                 <a href="https://www.linkedin.com/in/andressc25" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 50 50">
-                        <path d="M 9 4 C 6.2504839 4 4 6.2504839 4 9 L 4 41 C 4 43.749516 6.2504839 46 9 46 L 41 46 C 43.749516 46 46 43.749516 46 41 L 46 9 C 46 6.2504839 43.749516 4 41 4 L 9 4 z M 9 6 L 41 6 C 42.668484 6 44 7.3315161 44 9 L 44 41 C 44 42.668484 42.668484 44 41 44 L 9 44 C 7.3315161 44 6 42.668484 6 41 L 6 9 C 6 7.3315161 7.3315161 6 9 6 z M 14 11.011719 C 12.904779 11.011719 11.919219 11.339079 11.189453 11.953125 C 10.459687 12.567171 10.011719 13.484511 10.011719 14.466797 C 10.011719 16.333977 11.631285 17.789609 13.691406 17.933594 A 0.98809878 0.98809878 0 0 0 13.695312 17.935547 A 0.98809878 0.98809878 0 0 0 14 17.988281 C 16.27301 17.988281 17.988281 16.396083 17.988281 14.466797 A 0.98809878 0.98809878 0 0 0 17.986328 14.414062 C 17.884577 12.513831 16.190443 11.011719 14 11.011719 z M 14 12.988281 C 15.392231 12.988281 15.94197 13.610038 16.001953 14.492188 C 15.989803 15.348434 15.460091 16.011719 14 16.011719 C 12.614594 16.011719 11.988281 15.302225 11.988281 14.466797 C 11.988281 14.049083 12.140703 13.734298 12.460938 13.464844 C 12.78117 13.19539 13.295221 12.988281 14 12.988281 z M 11 19 A 1.0001 1.0001 0 0 0 10 20 L 10 39 A 1.0001 1.0001 0 0 0 11 40 L 17 40 A 1.0001 1.0001 0 0 0 18 39 L 18 33.134766 L 18 20 A 1.0001 1.0001 0 0 0 17 19 L 11 19 z M 20 19 A 1.0001 1.0001 0 0 0 19 20 L 19 39 A 1.0001 1.0001 0 0 0 20 40 L 26 40 A 1.0001 1.0001 0 0 0 27 39 L 27 29 C 27 28.170333 27.226394 27.345035 27.625 26.804688 C 28.023606 26.264339 28.526466 25.940057 29.482422 25.957031 C 30.468166 25.973981 30.989999 26.311669 31.384766 26.841797 C 31.779532 27.371924 32 28.166667 32 29 L 32 39 A 1.0001 1.0001 0 0 0 33 40 L 39 40 A 1.0001 1.0001 0 0 0 40 39 L 40 28.261719 C 40 25.300181 39.122788 22.95433 37.619141 21.367188 C 36.115493 19.780044 34.024172 19 31.8125 19 C 29.710483 19 28.110853 19.704889 27 20.423828 L 27 20 A 1.0001 1.0001 0 0 0 26 19 L 20 19 z M 12 21 L 16 21 L 16 33.134766 L 16 38 L 12 38 L 12 21 z M 21 21 L 25 21 L 25 22.560547 A 1.0001 1.0001 0 0 0 26.798828 23.162109 C 26.798828 23.162109 28.369194 21 31.8125 21 C 33.565828 21 35.069366 21.582581 36.167969 22.742188 C 37.266572 23.901794 38 25.688257 38 28.261719 L 38 38 L 34 38 L 34 29 C 34 27.833333 33.720468 26.627107 32.990234 25.646484 C 32.260001 24.665862 31.031834 23.983076 29.517578 23.957031 C 27.995534 23.930001 26.747519 24.626988 26.015625 25.619141 C 25.283731 26.611293 25 27.829667 25 29 L 25 38 L 21 38 L 21 21 z"></path>
+                        <path
+                            d="M 9 4 C 6.2504839 4 4 6.2504839 4 9 L 4 41 C 4 43.749516 6.2504839 46 9 46 L 41 46 C 43.749516 46 46 43.749516 46 41 L 46 9 C 46 6.2504839 43.749516 4 41 4 L 9 4 z M 9 6 L 41 6 C 42.668484 6 44 7.3315161 44 9 L 44 41 C 44 42.668484 42.668484 44 41 44 L 9 44 C 7.3315161 44 6 42.668484 6 41 L 6 9 C 6 7.3315161 7.3315161 6 9 6 z M 14 11.011719 C 12.904779 11.011719 11.919219 11.339079 11.189453 11.953125 C 10.459687 12.567171 10.011719 13.484511 10.011719 14.466797 C 10.011719 16.333977 11.631285 17.789609 13.691406 17.933594 A 0.98809878 0.98809878 0 0 0 13.695312 17.935547 A 0.98809878 0.98809878 0 0 0 14 17.988281 C 16.27301 17.988281 17.988281 16.396083 17.988281 14.466797 A 0.98809878 0.98809878 0 0 0 17.986328 14.414062 C 17.884577 12.513831 16.190443 11.011719 14 11.011719 z M 14 12.988281 C 15.392231 12.988281 15.94197 13.610038 16.001953 14.492188 C 15.989803 15.348434 15.460091 16.011719 14 16.011719 C 12.614594 16.011719 11.988281 15.302225 11.988281 14.466797 C 11.988281 14.049083 12.140703 13.734298 12.460938 13.464844 C 12.78117 13.19539 13.295221 12.988281 14 12.988281 z M 11 19 A 1.0001 1.0001 0 0 0 10 20 L 10 39 A 1.0001 1.0001 0 0 0 11 40 L 17 40 A 1.0001 1.0001 0 0 0 18 39 L 18 33.134766 L 18 20 A 1.0001 1.0001 0 0 0 17 19 L 11 19 z M 20 19 A 1.0001 1.0001 0 0 0 19 20 L 19 39 A 1.0001 1.0001 0 0 0 20 40 L 26 40 A 1.0001 1.0001 0 0 0 27 39 L 27 29 C 27 28.170333 27.226394 27.345035 27.625 26.804688 C 28.023606 26.264339 28.526466 25.940057 29.482422 25.957031 C 30.468166 25.973981 30.989999 26.311669 31.384766 26.841797 C 31.779532 27.371924 32 28.166667 32 29 L 32 39 A 1.0001 1.0001 0 0 0 33 40 L 39 40 A 1.0001 1.0001 0 0 0 40 39 L 40 28.261719 C 40 25.300181 39.122788 22.95433 37.619141 21.367188 C 36.115493 19.780044 34.024172 19 31.8125 19 C 29.710483 19 28.110853 19.704889 27 20.423828 L 27 20 A 1.0001 1.0001 0 0 0 26 19 L 20 19 z M 12 21 L 16 21 L 16 33.134766 L 16 38 L 12 38 L 12 21 z M 21 21 L 25 21 L 25 22.560547 A 1.0001 1.0001 0 0 0 26.798828 23.162109 C 26.798828 23.162109 28.369194 21 31.8125 21 C 33.565828 21 35.069366 21.582581 36.167969 22.742188 C 37.266572 23.901794 38 25.688257 38 28.261719 L 38 38 L 34 38 L 34 29 C 34 27.833333 33.720468 26.627107 32.990234 25.646484 C 32.260001 24.665862 31.031834 23.983076 29.517578 23.957031 C 27.995534 23.930001 26.747519 24.626988 26.015625 25.619141 C 25.283731 26.611293 25 27.829667 25 29 L 25 38 L 21 38 L 21 21 z">
+                        </path>
                     </svg>
                 </a>
             </div>
-            <a id="downloadCVLink" href="/documents/CV_ES_Andres_Segura.pdf" download class="btn btn-primary" data-lang="downloadCV">Descargar CV <i class="fas fa-download"></i></a>
+            <a id="downloadCVLink" href="/documents/CV_ES_Andres_Segura.pdf" download class="btn btn-primary"
+                data-lang="downloadCV">Descargar CV <i class="fas fa-download"></i></a>
         </section>
     </main>
 
     <button id="backToTopBtn" title="Volver arriba">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5" />
         </svg>
     </button>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@0.3.0/dist/lottie-player.js"></script>
 </body>
+
 </html>

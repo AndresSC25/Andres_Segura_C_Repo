@@ -14,9 +14,21 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.scrollTop = 0;
     };
 
-    // Inicializa el formulario de contacto con el idioma predeterminado (español)
     setupContactForm('es');
     changeLanguage('es');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            } else {
+                entry.target.classList.remove('show');
+            }
+        });
+    }, { threshold: 0 });
+
+    const hiddenElements = document.querySelectorAll('.hidden');
+    hiddenElements.forEach((el) => observer.observe(el));
 });
 
 const translations = {
@@ -144,28 +156,23 @@ function changeLanguage(lang) {
     const downloadCVLink = document.getElementById('downloadCVLink');
     downloadCVLink.href = `CV_${lang.toUpperCase()}_Andres_Segura.pdf`;
 
-    // Reconfigura el listener del formulario de contacto al cambiar el idioma
     setupContactForm(lang);
 }
 
 function setupContactForm(lang) {
     const contactForm = document.getElementById('contactForm');
 
-    
     contactForm.removeEventListener('submit', handleContactSubmit);
-
     contactForm.addEventListener('submit', handleContactSubmit);
 
     function handleContactSubmit(event) {
-        event.preventDefault(); // Evita que el formulario se envíe de manera tradicional
+        event.preventDefault();
 
-        // Obtención de valores del formulario
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const topic = document.getElementById('topic').value;
         const message = document.getElementById('message').value;
 
-        // Parámetros que se enviarán en el correo (a ti)
         const templateParamsToAdmin = {
             name: name,
             email: email,
@@ -173,24 +180,22 @@ function setupContactForm(lang) {
             message: message,
         };
 
-        const serviceID = "IrcI4r4feXZP75k0a"; 
+        const serviceID = "IrcI4r4feXZP75k0a";
         let templateIDToAdmin = "";
 
         if (lang === 'es') {
-            templateIDToAdmin = "template_sibbg7f"; 
+            templateIDToAdmin = "template_sibbg7f";
         } else if (lang === 'en') {
-            templateIDToAdmin = "template_wh14meh"; 
+            templateIDToAdmin = "template_wh14meh";
         } else {
             console.error("Idioma no soportado para el envío de correo.");
             return;
         }
 
-        // Envío del correo al administrador
         emailjs.send("service_lui5xao", templateIDToAdmin, templateParamsToAdmin)
             .then((responseAdmin) => {
                 console.log('Correo al administrador enviado!', responseAdmin.status, responseAdmin.text);
 
-                // Mostrar alerta de éxito al usuario con textos traducidos
                 Swal.fire({
                     icon: 'success',
                     title: translations[lang]['emailSentSuccessTitle'],
@@ -198,12 +203,10 @@ function setupContactForm(lang) {
                     confirmButtonText: translations[lang]['emailSentSuccessButton']
                 });
 
-                // Mostrar mensaje de éxito en la sección de resultados
                 const resultMessage = document.getElementById('resultMessage');
                 resultMessage.innerText = translations[lang]['emailSentSuccessResult'];
                 resultMessage.style.display = 'block';
 
-                // Resetear campos del formulario
                 document.getElementById('name').value = '';
                 document.getElementById('email').value = '';
                 document.getElementById('topic').value = '';
@@ -212,7 +215,6 @@ function setupContactForm(lang) {
             .catch((error) => {
                 console.error('Error al enviar:', error);
 
-                // Mostrar alerta de error con textos traducidos
                 Swal.fire({
                     icon: 'error',
                     title: translations[lang]['emailSentErrorTitle'],
@@ -220,7 +222,6 @@ function setupContactForm(lang) {
                     confirmButtonText: translations[lang]['emailSentErrorButton']
                 });
 
-                // Mostrar mensaje de error en la sección de resultados
                 const resultMessage = document.getElementById('resultMessage');
                 resultMessage.innerText = translations[lang]['emailSentErrorResult'];
                 resultMessage.style.display = 'block';
