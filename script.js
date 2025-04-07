@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Inicializa el formulario de contacto con el idioma predeterminado (español)
     setupContactForm('es');
-    changeLanguage('es'); // Asegúrate de que el idioma inicial se aplique
+    changeLanguage('es');
 });
 
 const translations = {
@@ -151,7 +151,7 @@ function changeLanguage(lang) {
 function setupContactForm(lang) {
     const contactForm = document.getElementById('contactForm');
 
-    // Removemos el listener ANTES de agregarlo
+    
     contactForm.removeEventListener('submit', handleContactSubmit);
 
     contactForm.addEventListener('submit', handleContactSubmit);
@@ -173,19 +173,19 @@ function setupContactForm(lang) {
             message: message,
         };
 
-        const serviceID = "IrcI4r4feXZP75k0a"; // Reemplaza con tu Service ID
+        const serviceID = "IrcI4r4feXZP75k0a"; 
         let templateIDToAdmin = "";
 
         if (lang === 'es') {
-            templateIDToAdmin = "template_sibbg7f"; // Reemplaza con tu Template ID para español
+            templateIDToAdmin = "template_sibbg7f"; 
         } else if (lang === 'en') {
-            templateIDToAdmin = "template_wh14meh"; // Reemplaza con tu Template ID para inglés
+            templateIDToAdmin = "template_wh14meh"; 
         } else {
             console.error("Idioma no soportado para el envío de correo.");
             return;
         }
 
-        // Envío del correo al administrador (tú)
+        // Envío del correo al administrador
         emailjs.send("service_lui5xao", templateIDToAdmin, templateParamsToAdmin)
             .then((responseAdmin) => {
                 console.log('Correo al administrador enviado!', responseAdmin.status, responseAdmin.text);
