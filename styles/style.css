@@ -1,0 +1,332 @@
+:root {
+    --bg-color: linear-gradient(135deg, #000, #2c4d80);
+    --primary-color: #00a1e0;
+    --primary-hover: #0078b3;
+    --text-color: white;
+    --title-font: 'Inter', sans-serif;
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: var(--bg-color);
+    min-height: 100vh;
+    color: var(--text-color);
+    margin: 0;
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilos de la barra de navegación mejorada */
+.navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(0.8rem);
+    box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.4);
+    border-bottom: 0.1rem solid rgba(255, 255, 255, 0.25);
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar-brand img {
+    height: 6rem;
+    display: block;
+}
+
+.navbar-nav {
+    margin-left: auto;
+    display: flex;
+}
+
+.nav-link {
+    color: var(--text-color) !important;
+    margin-right: 1rem;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+    text-decoration: underline;
+}
+
+/* Estilos mejorados para los botones de idioma */
+.lang-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: var(--text-color) !important;
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.lang-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.lang-separator {
+    color: var(--text-color);
+    margin: 0 0.5rem;
+}
+
+main {
+    width: 90%;
+    max-width: 80rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.glass {
+    border-radius: 0.9375rem;
+    padding: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+#intro {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(0.5rem);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    border: 0.0625rem solid rgba(255, 255, 255, 0.2);
+    align-self: flex-start;
+    width: 70%;
+    transform: translateY(2rem) rotate(-3deg);
+}
+
+#projects {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(0.4rem);
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.3);
+    border: 0.0625rem solid rgba(255, 255, 255, 0.1);
+    align-self: center;
+    width: 80%;
+    transform: translateY(-1rem) rotate(2deg);
+}
+
+#experience {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(0.6rem);
+    box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.25);
+    border: 0.0625rem solid rgba(255, 255, 255, 0.25);
+    align-self: flex-end;
+    width: 75%;
+    transform: translateY(3rem) rotate(4deg);
+}
+
+#education {
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(0.55rem);
+    box-shadow: 0 0.25rem 0.55rem rgba(0, 0, 0, 0.35);
+    border: 0.0625rem solid rgba(255, 255, 255, 0.15);
+    align-self: flex-start;
+    width: 65%;
+    transform: translateY(-2rem) rotate(-2deg);
+}
+
+#skills {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(0.45rem);
+    box-shadow: 0 0.2rem 0.45rem rgba(0, 0, 0, 0.3);
+    border: 0.0625rem solid rgba(255, 255, 255, 0.3);
+    align-self: center;
+    width: 90%;
+    transform: translateY(1.5rem) rotate(3deg);
+}
+
+#contact-info {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(0.65rem);
+    box-shadow: 0 0.3rem 0.65rem rgba(0, 0, 0, 0.4);
+    border: 0.0625rem solid rgba(255, 255, 255, 0.2);
+    align-self: flex-end;
+    width: 85%;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    transform: translateY(-2.5rem) rotate(-4deg);
+}
+
+h2 {
+    font-family: var(--title-font);
+    font-size: 2.8rem;
+    margin-bottom: 1.8rem;
+    color: var(--primary-color);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+#projects {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+#projectCarousel .carousel-inner img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    font-size: 1rem;
+    padding: 0.625rem 1.25rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.contact-form {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    width: 100%;
+    max-width: 30rem;
+    text-align: left;
+}
+
+.contact-form h2 {
+    text-align: left;
+}
+
+.contact-form form {
+    margin-top: 2rem;
+}
+
+.contact-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: var(--text-color);
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.3rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+}
+
+.contact-form button {
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: var(--primary-hover);
+}
+
+#experience, #education, #skills {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.experience-item, .education-item, .skills-item {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.experience-item h3, .education-item h3, .skills-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+#backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 0.8rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    z-index: 100;
+    transition: opacity 0.3s ease;
+}
+
+#backToTopBtn:hover {
+    opacity: 0.8;
+}
+
+#backToTopBtn.show {
+    display: block;
+}
+
+#backToTopBtn svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.contact-icons a {
+    margin: 0 1rem;
+}
+
+#contact-info svg {
+    width: 2rem;
+    height: 2rem;
+    display: block;
+}
+
+#contact-info .contact-icons svg {
+    width: 2.5rem; /* Ajuste para igualar el tamaño */
+    height: 2.5rem; /* Ajuste para igualar el tamaño */
+    display: block;
+    fill: var(--text-color);
+    transition: fill 0.3s ease;
+}
+
+#contact-info .contact-icons a:hover svg {
+    fill: var(--primary-color);
+}
+
+#downloadCVLink {
+    margin-top: 2rem; /* Espacio entre los iconos y el botón */
+    display: block;
+    text-align: center;
+}
