@@ -4,6 +4,9 @@
     --primary-hover: #0078b3;
     --text-color: white;
     --title-font: 'Inter', sans-serif;
+    --section-separator-color: rgba(255, 255, 255, 0.15);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-bg-alt: rgba(255, 255, 255, 0.08);
 }
 
 html {
@@ -16,7 +19,7 @@ body {
     min-height: 100vh;
     color: var(--text-color);
     margin: 0;
-    padding-top: 5rem;
+    padding-top: 5rem; /* Mantenemos este padding para el espacio inicial debajo del navbar */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -93,47 +96,44 @@ main {
 .glass {
     border-radius: 0.9375rem;
     padding: 2rem;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    /* Aumentamos aún más los márgenes verticales */
+    margin-top: 6rem;
+    margin-bottom: 6rem;
     transition: all 0.3s ease;
     position: relative;
-}
-
-#intro {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--glass-bg);
     backdrop-filter: blur(0.5rem);
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     border: 0.0625rem solid rgba(255, 255, 255, 0.2);
+}
+
+/* Aplicando el fondo alternativo a las secciones pares */
+main > .glass:nth-child(even) {
+    background-color: var(--glass-bg-alt);
+}
+
+/* Aumentamos el margen superior de la primera sección (#intro) */
+#intro {
     align-self: flex-start;
     width: 70%;
     transform: translateY(2rem) rotate(-3deg);
+    background-color: var(--glass-bg);
+    margin-top: 7rem; /* Aumentamos el margen superior */
 }
 
 #projects {
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(0.4rem);
-    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.3);
-    border: 0.0625rem solid rgba(255, 255, 255, 0.1);
     align-self: center;
     width: 80%;
     transform: translateY(-1rem) rotate(2deg);
 }
 
 #experience {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(0.6rem);
-    box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.25);
-    border: 0.0625rem solid rgba(255, 255, 255, 0.25);
     align-self: flex-end;
     width: 75%;
     transform: translateY(3rem) rotate(4deg);
 }
 
 #education {
-    background: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(0.55rem);
-    box-shadow: 0 0.25rem 0.55rem rgba(0, 0, 0, 0.35);
-    border: 0.0625rem solid rgba(255, 255, 255, 0.15);
     align-self: flex-start;
     width: 65%;
     transform: translateY(-2rem) rotate(-2deg);
@@ -174,10 +174,6 @@ main {
 }
 
 #skills {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(0.45rem);
-    box-shadow: 0 0.2rem 0.45rem rgba(0, 0, 0, 0.3);
-    border: 0.0625rem solid rgba(255, 255, 255, 0.3);
     align-self: center;
     width: 90%;
     transform: translateY(1.5rem) rotate(3deg);
@@ -218,14 +214,10 @@ main {
 }
 
 #contact-info {
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(0.65rem);
-    box-shadow: 0 0.3rem 0.65rem rgba(0, 0, 0, 0.4);
-    border: 0.0625rem solid rgba(255, 255, 255, 0.2);
     align-self: flex-end;
     width: 85%;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
     transform: translateY(-2.5rem) rotate(-4deg);
 }
 
@@ -239,8 +231,8 @@ h2 {
 }
 
 #projects {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
 }
 
 #projectCarousel .carousel-inner img {
@@ -270,8 +262,8 @@ h2 {
     background-color: rgba(255, 255, 255, 0.2);
     padding: 2rem;
     border-radius: 0.5rem;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
     width: 100%;
     max-width: 30rem;
     text-align: left;
@@ -320,8 +312,8 @@ h2 {
 
 #experience,
 #education {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
 }
 
 .experience-item,
@@ -413,8 +405,9 @@ h2 {
 
     .glass {
         padding: 1.5rem;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+        /* Ajustamos los márgenes para pantallas pequeñas */
+        margin-top: 4rem;
+        margin-bottom: 4rem;
     }
 
     #intro,
@@ -425,8 +418,8 @@ h2 {
     #contact-info {
         width: 100%;
         transform: none !important;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
     }
 
     h2 {
@@ -488,15 +481,27 @@ h2 {
     h2 {
         font-size: 2.5rem;
     }
+
+    .glass {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
 }
 
 .hidden {
     opacity: 0;
-    transform: translateY(20px); 
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .hidden.show {
     opacity: 1;
-    transform: translateY(0); 
+    transform: translateY(0);
+}
+
+.section-description {
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
