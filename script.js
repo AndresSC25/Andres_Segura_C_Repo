@@ -142,7 +142,7 @@ function changeLanguage(lang) {
     });
 
     const downloadCVLink = document.getElementById('downloadCVLink');
-    downloadCVLink.href = `/documents/CV_${lang.toUpperCase()}_Andres_Segura.pdf`;
+    downloadCVLink.href = `CV_${lang.toUpperCase()}_Andres_Segura.pdf`;
 
     // Reconfigura el listener del formulario de contacto al cambiar el idioma
     setupContactForm(lang);
