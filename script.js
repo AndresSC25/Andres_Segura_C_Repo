@@ -1,18 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
     const backToTopBtn = document.getElementById('backToTopBtn');
+    const hiddenElements = document.querySelectorAll('.hidden');
 
-    window.onscroll = () => {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    function debounce(func, delay) {
+        let timeoutId;
+        return function(...args) {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                func.apply(this, args);
+            }, delay);
+        };
+    }
+
+    const debouncedScroll = debounce(() => {
+        if (window.scrollY > 20) {
             backToTopBtn.classList.add('show');
         } else {
             backToTopBtn.classList.remove('show');
         }
-    };
+    }, 100);
 
-    backToTopBtn.onclick = () => {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    };
+    window.addEventListener('scroll', debouncedScroll);
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
     setupContactForm('es');
     changeLanguage('es');
@@ -27,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0 });
 
-    const hiddenElements = document.querySelectorAll('.hidden');
     hiddenElements.forEach((el) => observer.observe(el));
 });
 
@@ -46,12 +57,6 @@ const translations = {
         "skills-description": "Un vistazo a mis habilidades técnicas y blandas.",
         contact: "Contacto",
         "contact-description": "¡No dudes en ponerte en contacto conmigo!",
-        about: "Sobre mí",
-        projects: "Proyectos",
-        experience: "Experiencia",
-        education: "Educación",
-        skills: "Habilidades",
-        contact: "Contacto",
         greeting: "¡Hola, soy Andrés Segura Calderón!",
         intro: "Desarrollador full-stack con experiencia en Java, Python, C#, .NET y bases de datos SQL y NoSQL. Experiencia en tecnologías frontend como HTML, CSS, JavaScript y React, además de pruebas de software manuales y automatizadas con Selenium y PyCharm.",
         projectsTitle: "Proyectos Destacados",
@@ -116,12 +121,6 @@ const translations = {
         "skills-description": "A glimpse into my technical and soft skills.",
         contact: "Contact",
         "contact-description": "Feel free to get in touch with me!",
-        about: "About me",
-        projects: "Projects",
-        experience: "Experience",
-        education: "Education",
-        skills: "Skills",
-        contact: "Contact",
         greeting: "Hello, I'm Andrés Segura Calderón!",
         intro: "Full-stack developer with experience in Java, Python, C#, .NET, and SQL and NoSQL databases. Experience in frontend technologies like HTML, CSS, JavaScript, and React, as well as manual and automated software testing with Selenium and PyCharm.",
         projectsTitle: "Featured Projects",
@@ -178,23 +177,27 @@ function changeLanguage(lang) {
     const elements = document.querySelectorAll('[data-lang]');
     elements.forEach(element => {
         const key = element.getAttribute('data-lang');
-        if (translations[lang] && translations[lang][key]) {
+        const translation = translations[lang] && translations[lang][key];
+        if (translation) {
             if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                element.placeholder = translations[lang][key + 'Placeholder'] || translations[lang][key] || '';
+                element.placeholder = translations[lang][key + 'Placeholder'] || translation;
             } else {
-                element.textContent = translations[lang][key];
+                element.textContent = translation;
             }
         }
     });
 
     const downloadCVLink = document.getElementById('downloadCVLink');
-    downloadCVLink.href = `CV_${lang.toUpperCase()}_Andres_Segura.pdf`;
+    if (downloadCVLink) {
+        downloadCVLink.href = `CV_${lang.toUpperCase()}_Andres_Segura.pdf`;
+    }
 
     setupContactForm(lang);
 }
 
 function setupContactForm(lang) {
     const contactForm = document.getElementById('contactForm');
+    if (!contactForm) return;
 
     contactForm.removeEventListener('submit', handleContactSubmit);
     contactForm.addEventListener('submit', handleContactSubmit);
@@ -204,118 +207,73 @@ function setupContactForm(lang) {
         return emailRegex.test(email);
     }
 
-    function handleContactSubmit(event) {
+    async function handleContactSubmit(event) {
         event.preventDefault();
 
         const nameInput = document.getElementById('name');
         const emailInput = document.getElementById('email');
         const messageInput = document.getElementById('message');
+        const topicInput = document.getElementById('topic');
 
-        const name = nameInput.value.trim();
-        const email = emailInput.value.trim();
-        const topic = document.getElementById('topic').value.trim();
-        const message = messageInput.value.trim();
-
-        let isValid = true;
+        const name = nameInput ? nameInput.value.trim() : '';
+        const email = emailInput ? emailInput.value.trim() : '';
+        const topic = topicInput ? topicInput.value.trim() : '';
+        const message = messageInput ? messageInput.value.trim() : '';
 
         if (!name) {
-            Swal.fire({
-                icon: 'warning',
-                title: translations[lang]['emailSentErrorTitle'],
-                text: translations[lang]['validationNameRequired'],
-                confirmButtonText: translations[lang]['emailSentErrorButton']
-            });
-            isValid = false;
+            await Swal.fire({ icon: 'warning', title: translations[lang]['emailSentErrorTitle'], text: translations[lang]['validationNameRequired'], confirmButtonText: translations[lang]['emailSentErrorButton'] });
             return;
         }
-
         if (!email) {
-            Swal.fire({
-                icon: 'warning',
-                title: translations[lang]['emailSentErrorTitle'],
-                text: translations[lang]['validationEmailRequired'],
-                confirmButtonText: translations[lang]['emailSentErrorButton']
-            });
-            isValid = false;
+            await Swal.fire({ icon: 'warning', title: translations[lang]['emailSentErrorTitle'], text: translations[lang]['validationEmailRequired'], confirmButtonText: translations[lang]['emailSentErrorButton'] });
             return;
         }
-
         if (!isValidEmail(email)) {
-            Swal.fire({
-                icon: 'warning',
-                title: translations[lang]['emailSentErrorTitle'],
-                text: translations[lang]['validationEmailInvalid'],
-                confirmButtonText: translations[lang]['emailSentErrorButton']
-            });
-            isValid = false;
+            await Swal.fire({ icon: 'warning', title: translations[lang]['emailSentErrorTitle'], text: translations[lang]['validationEmailInvalid'], confirmButtonText: translations[lang]['emailSentErrorButton'] });
             return;
         }
-
         if (!message) {
-            Swal.fire({
-                icon: 'warning',
-                title: translations[lang]['emailSentErrorTitle'],
-                text: translations[lang]['validationMessageRequired'],
-                confirmButtonText: translations[lang]['emailSentErrorButton']
-            });
-            isValid = false;
+            await Swal.fire({ icon: 'warning', title: translations[lang]['emailSentErrorTitle'], text: translations[lang]['validationMessageRequired'], confirmButtonText: translations[lang]['emailSentErrorButton'] });
             return;
         }
 
-        if (isValid) {
-            const templateParamsToAdmin = {
-                name: name,
-                email: email,
-                topic: topic,
-                message: message,
-            };
+        const serviceID = "service_lui5xao";
+        let templateIDToAdmin = "";
 
-            const serviceID = "service_lui5xao";
-            let templateIDToAdmin = "";
+        if (lang === 'es') {
+            templateIDToAdmin = "template_sibbg7f";
+        } else if (lang === 'en') {
+            templateIDToAdmin = "template_wh14meh";
+        } else {
+            console.error("Idioma no soportado para el envío de correo.");
+            return;
+        }
 
-            if (lang === 'es') {
-                templateIDToAdmin = "template_sibbg7f";
-            } else if (lang === 'en') {
-                templateIDToAdmin = "template_wh14meh";
-            } else {
-                console.error("Idioma no soportado para el envío de correo.");
-                return;
+        try {
+            const responseAdmin = await emailjs.send(serviceID, templateIDToAdmin, { name, email, topic, message });
+            console.log('Correo al administrador enviado!', responseAdmin.status, responseAdmin.text);
+            await Swal.fire({ icon: 'success', title: translations[lang]['emailSentSuccessTitle'], text: translations[lang]['emailSentSuccessText'], confirmButtonText: translations[lang]['emailSentSuccessButton'] });
+
+            const resultMessage = document.getElementById('resultMessage');
+            if (resultMessage) {
+                resultMessage.innerText = translations[lang]['emailSentSuccessResult'];
+                resultMessage.style.display = 'block';
             }
 
-            emailjs.send(serviceID, templateIDToAdmin, templateParamsToAdmin)
-                .then((responseAdmin) => {
-                    console.log('Correo al administrador enviado!', responseAdmin.status, responseAdmin.text);
+            if (nameInput) nameInput.value = '';
+            if (emailInput) emailInput.value = '';
+            if (topicInput) topicInput.value = '';
+            if (messageInput) messageInput.value = '';
 
-                    Swal.fire({
-                        icon: 'success',
-                        title: translations[lang]['emailSentSuccessTitle'],
-                        text: translations[lang]['emailSentSuccessText'],
-                        confirmButtonText: translations[lang]['emailSentSuccessButton']
-                    });
+        } catch (error) {
+            console.error('Error al enviar:', error);
+            await Swal.fire({ icon: 'error', title: translations[lang]['emailSentErrorTitle'], text: translations[lang]['emailSentErrorText'], confirmButtonText: translations[lang]['emailSentErrorButton'] });
 
-                    const resultMessage = document.getElementById('resultMessage');
-                    resultMessage.innerText = translations[lang]['emailSentSuccessResult'];
-                    resultMessage.style.display = 'block';
-
-                    nameInput.value = '';
-                    emailInput.value = '';
-                    document.getElementById('topic').value = '';
-                    messageInput.value = '';
-                })
-                .catch((error) => {
-                    console.error('Error al enviar:', error);
-
-                    Swal.fire({
-                        icon: 'error',
-                        title: translations[lang]['emailSentErrorTitle'],
-                        text: translations[lang]['emailSentErrorText'],
-                        confirmButtonText: translations[lang]['emailSentErrorButton']
-                    });
-
-                    const resultMessage = document.getElementById('resultMessage');
-                    resultMessage.innerText = translations[lang]['emailSentErrorResult'];
-                    resultMessage.style.display = 'block';
-                });
+            const resultMessage = document.getElementById('resultMessage');
+            if (resultMessage) {
+                resultMessage.innerText = translations[lang]['emailSentErrorResult'];
+                resultMessage.style.display = 'block';
+            }
         }
     }
 }
