@@ -1,313 +1,313 @@
 :root {
-    --bg-color: linear-gradient(135deg, #000, #2c4d80);
-    --primary-color: #00a1e0;
-    --primary-hover: #0078b3;
-    --text-color: white;
-    --title-font: 'Inter', sans-serif;
-    --section-separator-color: rgba(255, 255, 255, 0.15);
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-bg-alt: rgba(255, 255, 255, 0.08);
-    --glass-border: rgba(255, 255, 255, 0.25);
+  --bg-color: linear-gradient(135deg, #000, #2c4d80);
+  --primary-color: #00a1e0;
+  --primary-hover: #0078b3;
+  --text-color: white;
+  --title-font: "Inter", sans-serif;
+  --section-separator-color: rgba(255, 255, 255, 0.15);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-bg-alt: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.25);
 }
 
 html {
-    font-size: 16px;
-    font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
 }
 
 body {
-    background: var(--bg-color);
-    min-height: 100vh;
-    color: var(--text-color);
-    margin: 0;
-    padding-top: 5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background: var(--bg-color);
+  min-height: 100vh;
+  color: var(--text-color);
+  margin: 0;
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .navbar {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(0.8rem);
-    box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.4);
-    border-bottom: 0.1rem solid rgba(255, 255, 255, 0.25);
-    padding: 0.5rem 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 10;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    height: 4rem;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(0.8rem);
+  box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.4);
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.25);
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  height: 4rem;
 }
 
 .navbar-brand img {
-    height: 7rem;
-    display: block;
+  height: 7rem;
+  display: block;
 }
 
 .navbar-nav {
-    margin-left: auto;
-    display: flex;
+  margin-left: auto;
+  display: flex;
 }
 
 .nav-link {
-    color: var(--text-color) !important;
-    margin-right: 1rem;
-    font-size: 1rem;
-    position: relative;
-    text-decoration: none;
+  color: var(--text-color) !important;
+  margin-right: 1rem;
+  font-size: 1rem;
+  position: relative;
+  text-decoration: none;
 }
 
 .nav-link::before {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background-color: var(--primary-color);
-    transition: width 0.3s ease-out;
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease-out;
 }
 
 .nav-link:hover::before {
-    width: 100%;
+  width: 100%;
 }
 
 .nav-link:hover {
-    color: var(--primary-color) !important;
+  color: var(--primary-color) !important;
 }
 
 .lang-btn {
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: var(--text-color) !important;
-    padding: 0.5rem 1rem;
-    margin-left: 0.5rem;
-    border-radius: 0.3rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: var(--text-color) !important;
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .lang-btn:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .lang-separator {
-    color: var(--text-color);
-    margin: 0 0.5rem;
+  color: var(--text-color);
+  margin: 0 0.5rem;
 }
 
 main {
-    width: 90%;
-    max-width: 80rem;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 90%;
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .glass {
-    border-radius: 0.9375rem;
-    padding: 1.5rem;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    transition: all 0.3s ease;
-    position: relative;
-    background: var(--glass-bg);
-    backdrop-filter: blur(0.5rem);
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
-    border: 0.0625rem solid var(--glass-border);
-    width: 90%;
-    align-self: stretch;
+  border-radius: 0.9375rem;
+  padding: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  transition: all 0.3s ease;
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: blur(0.5rem);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+  border: 0.0625rem solid var(--glass-border);
+  width: 90%;
+  align-self: stretch;
 }
 
-main>.glass:nth-child(even) {
-    background-color: var(--glass-bg-alt);
+main > .glass:nth-child(even) {
+  background-color: var(--glass-bg-alt);
 }
 
 #intro {
-    align-self: flex-start;
-    width: 70%;
-    transform: none;
-    margin-top: 5rem;
-    scroll-margin-top: 5rem;
+  align-self: flex-start;
+  width: 70%;
+  transform: none;
+  margin-top: 5rem;
+  scroll-margin-top: 5rem;
 }
 
 #projects {
-    align-self: center;
-    width: 80%;
-    transform: none;
-    scroll-margin-top: 5rem;
+  align-self: center;
+  width: 80%;
+  transform: none;
+  scroll-margin-top: 5rem;
 }
 
 #experience {
-    align-self: flex-end;
-    width: 75%;
-    transform: none;
-    scroll-margin-top: 5rem;
+  align-self: flex-end;
+  width: 75%;
+  transform: none;
+  scroll-margin-top: 5rem;
 }
 
 #education {
-    align-self: flex-start;
-    width: 65%;
-    transform: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem;
-    flex-direction: row;
-    scroll-margin-top: 5rem;
+  align-self: flex-start;
+  width: 65%;
+  transform: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  flex-direction: row;
+  scroll-margin-top: 5rem;
 }
 
 .education-container {
-    flex-grow: 1;
-    margin-right: 2rem;
+  flex-grow: 1;
+  margin-right: 2rem;
 }
 
 .lottie-education-container {
-    width: 150px;
-    height: auto;
+  width: 150px;
+  height: auto;
 }
 
 #skills {
-    align-self: center;
-    width: 90%;
-    transform: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem;
-    flex-direction: row;
-    scroll-margin-top: 5rem;
+  align-self: center;
+  width: 90%;
+  transform: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  flex-direction: row;
+  scroll-margin-top: 5rem;
 }
 
 .skills-container {
-    flex-grow: 1;
-    margin-right: 2rem;
-    margin-bottom: 1.5rem; /* Espacio inferior para el acordeón */
+  flex-grow: 1;
+  margin-right: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .lottie-skills-container {
-    width: 200px;
-    height: auto;
+  width: 200px;
+  height: auto;
 }
 
 .contact-form {
-    align-self: center;
-    width: 85%;
-    transform: none;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    scroll-margin-top: 5rem;
+  align-self: center;
+  width: 85%;
+  transform: none;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  scroll-margin-top: 5rem;
 }
 
 #contact-info {
-    align-self: flex-end;
-    width: 85%;
-    transform: none;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    scroll-margin-top: 5rem;
+  align-self: flex-end;
+  width: 85%;
+  transform: none;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  scroll-margin-top: 5rem;
 }
 
 h2 {
-    font-family: var(--title-font);
-    font-size: 2.8rem;
-    margin-bottom: 1.8rem;
-    color: var(--primary-color);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    text-align: center;
+  font-family: var(--title-font);
+  font-size: 2.8rem;
+  margin-bottom: 1.8rem;
+  color: var(--primary-color);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
 #projects {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 #projectCarousel {
-    border-radius: 0.9375rem;
-    overflow: hidden;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+  border-radius: 0.9375rem;
+  overflow: hidden;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
 }
 
 #projectCarousel .carousel-inner img {
-    border-radius: 0;
-    clip-path: none;
+  border-radius: 0;
+  clip-path: none;
 }
 
 .carousel-caption {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 1rem;
-    color: var(--primary-color);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  color: var(--primary-color);
 }
 
 .btn-primary {
-    background-color: var(--primary-color);
-    border: none;
-    font-size: 1rem;
-    padding: 0.625rem 1.25rem;
-    transition: background-color 0.3s ease;
+  background-color: var(--primary-color);
+  border: none;
+  font-size: 1rem;
+  padding: 0.625rem 1.25rem;
+  transition: background-color 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-hover);
+  background-color: var(--primary-hover);
 }
 
 .contact-form h2 {
-    text-align: left;
-    font-size: 2rem;
-    margin-bottom: 1.2rem;
+  text-align: left;
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
 }
 
 .contact-form form {
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .contact-form .form-group {
-    margin-bottom: 0.8rem;
+  margin-bottom: 0.8rem;
 }
 
 .contact-form label {
-    display: block;
-    margin-bottom: 0.2rem;
-    color: var(--text-color);
-    font-size: 0.9rem;
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--text-color);
+  font-size: 0.9rem;
 }
 
 .contact-form input,
 .contact-form textarea {
-    width: 100%;
-    padding: 0.4rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 0.3rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--text-color);
-    font-size: 0.9rem;
+  width: 100%;
+  padding: 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.3rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  font-size: 0.9rem;
 }
 
 .contact-form button {
-    background-color: var(--primary-color);
-    border: none;
-    color: white;
-    padding: 0.6rem 1.2rem;
-    border-radius: 0.3rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 0.9rem;
+  background-color: var(--primary-color);
+  border: none;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
 }
 
 .contact-form button:hover {
-    background-color: var(--primary-hover);
+  background-color: var(--primary-hover);
 }
 
 #experience,
 #education {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .experience-item p,
@@ -317,387 +317,385 @@ h2 {
 .contact-form p,
 .carousel-caption p,
 .section-description {
-    font-size: 1.1rem;
-    opacity: 0.85;
-    line-height: 1.6;
+  font-size: 1.1rem;
+  opacity: 0.85;
+  line-height: 1.6;
 }
 
 .experience-item h3,
 .education-item h3,
 .skills-item h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
 }
 
 #backToTopBtn {
-    display: none;
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    padding: 0.8rem;
-    cursor: pointer;
-    font-size: 1.2rem;
-    z-index: 100;
-    transition: opacity 0.3s ease;
+  display: none;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 0.8rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  z-index: 100;
+  transition: opacity 0.3s ease;
 }
 
 #backToTopBtn:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 #backToTopBtn.show {
-    display: block;
+  display: block;
 }
 
 #backToTopBtn svg {
-    width: 2rem;
-    height: 2rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 .contact-icons {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
 }
 
 .contact-icons a {
-    margin: 0 1rem;
+  margin: 0 1rem;
 }
 
 #contact-info svg {
-    width: 2rem;
-    height: 2rem;
-    display: block;
+  width: 2rem;
+  height: 2rem;
+  display: block;
 }
 
 #contact-info .contact-icons svg {
-    width: 2.5rem;
-    height: 2.5rem;
-    display: block;
-    fill: var(--text-color);
-    transition: fill 0.3s ease;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: block;
+  fill: var(--text-color);
+  transition: fill 0.3s ease;
 }
 
 #contact-info .contact-icons a:hover svg {
-    fill: var(--primary-color);
+  fill: var(--primary-color);
 }
 
 #downloadCVLink {
-    margin-top: 2rem;
-    display: block;
-    text-align: center;
+  margin-top: 2rem;
+  display: block;
+  text-align: center;
 }
 
-/* Estilos para el acordeón */
 .accordion-item {
-    background-color: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 0.5rem;
-    margin-bottom: 0.75rem;
-    overflow: hidden; /* Para que los bordes redondeados se mantengan al expandir */
+  background-color: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
 }
 
 .accordion-header {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .accordion-button {
-    background-color: transparent;
-    color: var(--text-color);
-    border: none;
-    padding: 1rem 1.25rem;
-    text-align: left;
-    font-size: 1.1rem;
-    font-weight: bold;
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    transition: background-color 0.2s ease;
+  background-color: transparent;
+  color: var(--text-color);
+  border: none;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.2s ease;
 }
 
 .accordion-button:focus {
-    z-index: 3;
-    border-color: var(--primary-color);
-    outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(0, 161, 224, 0.25); /* Sombra azul al enfocar */
+  z-index: 3;
+  border-color: var(--primary-color);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(0, 161, 224, 0.25);
 }
 
 .accordion-button:not(.collapsed) {
-    color: var(--primary-color);
-    background-color: rgba(0, 161, 224, 0.1); /* Fondo sutil cuando está abierto */
-    box-shadow: none;
+  color: var(--primary-color);
+  background-color: rgba(0, 161, 224, 0.1);
+  box-shadow: none;
 }
 
 .accordion-button::after {
-    filter: invert(100%); /* Invertir el color del icono para que sea visible en el texto blanco */
+  filter: invert(100%);
 }
 
 .accordion-button:not(.collapsed)::after {
-    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%2300a1e0' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e"); /* Cambiar el color del icono cuando está abierto */
-    transform: rotate(-180deg);
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%2300a1e0' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  /* Cambiar el color del icono cuando está abierto */
+  transform: rotate(-180deg);
 }
 
 .accordion-body {
-    padding: 1rem 1.25rem;
-    color: var(--text-color);
+  padding: 1rem 1.25rem;
+  color: var(--text-color);
 }
 
 .accordion-body p {
-    margin-bottom: 0; /* Eliminar el margen inferior predeterminado del párrafo */
+  margin-bottom: 0;
 }
 
-/* Ajustes específicos para la sección de habilidades */
 #skills .skills-container {
-    margin-bottom: 1.5rem; /* Espacio inferior para el acordeón */
+  margin-bottom: 1.5rem;
 }
 
 #skills .accordion-item h3 {
-    margin-bottom: 0; /* Evitar doble margen en el encabezado del acordeón */
-    color: inherit; /* Heredar el color del botón del acordeón */
+  margin-bottom: 0;
+  color: inherit;
 }
 
 @media (max-width: 768px) {
-    body {
-        padding-top: 3rem; /* Ajustar el padding superior para evitar solapamiento con la barra de navegación */
-        font-size: 1rem; /* Aumentar ligeramente el tamaño de la fuente base para mejor legibilidad */
-    }
+  body {
+    padding-top: 3rem;
+    font-size: 1rem;
+  }
 
-    .navbar {
-        height: auto; /* Permitir que la barra de navegación crezca verticalmente si es necesario */
-        padding: 0.5rem; /* Reducir el padding general de la barra de navegación */
-        flex-direction: column; /* Apilar los elementos de la barra de navegación verticalmente */
-        align-items: flex-start; /* Alinear los elementos al inicio (izquierda) */
-    }
+  .navbar {
+    height: auto;
+    padding: 0.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    .navbar-brand {
-        margin-bottom: 0.5rem; /* Espacio entre el logo y el botón de menú */
-    }
+  .navbar-brand {
+    margin-bottom: 0.5rem;
+  }
 
-    .navbar-brand img {
-        height: 4rem; /* Reducir el tamaño del logo para pantallas pequeñas */
-    }
+  .navbar-brand img {
+    height: 4rem;
+  }
 
-    .navbar-toggler {
-        margin-bottom: 0.5rem; /* Espacio debajo del botón del toggler */
-    }
+  .navbar-toggler {
+    margin-bottom: 0.5rem;
+  }
 
-    .navbar-collapse {
-        width: 100%; /* Ocupar todo el ancho disponible */
-    }
+  .navbar-collapse {
+    width: 100%;
+  }
 
-    .navbar-nav {
-        margin-left: 0; /* Eliminar el margen izquierdo */
-        flex-direction: column; /* Apilar los enlaces de navegación verticalmente */
-        width: 100%; /* Ocupar todo el ancho del contenedor colapsado */
-    }
+  .navbar-nav {
+    margin-left: 0;
+    flex-direction: column;
+    width: 100%;
+  }
 
-    .nav-item {
-        margin-right: 0; /* Eliminar el margen derecho de los items de navegación */
-        margin-bottom: 0.5rem; /* Añadir espacio entre los items de navegación */
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador visual entre los enlaces */
-    }
+  .nav-item {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
 
-    .nav-link {
-        padding: 0.7rem 0; /* Ajustar el padding vertical de los enlaces */
-        font-size: 1.1rem; /* Aumentar ligeramente el tamaño de la fuente de los enlaces */
-    }
+  .nav-link {
+    padding: 0.7rem 0;
+    font-size: 1.1rem;
+  }
 
-    .nav-link::before {
-        display: none; /* Ocultar la animación de la línea inferior en pantallas pequeñas para simplificar */
-    }
+  .nav-link::before {
+    display: none;
+  }
 
-    .d-flex {
-        flex-direction: row; /* Mantener los botones de idioma en fila */
-        align-items: center; /* Centrar verticalmente los botones de idioma */
-        width: 100%; /* Ocupar todo el ancho disponible */
-        justify-content: flex-end; /* Alinear los botones de idioma a la derecha */
-        margin-top: 0.5rem; /* Espacio desde los enlaces de navegación */
-    }
+  .d-flex {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+  }
 
-    .lang-btn {
-        margin-left: 0.3rem; /* Reducir el margen izquierdo entre los botones de idioma */
-        padding: 0.4rem 0.8rem; /* Reducir el padding de los botones de idioma */
-        font-size: 0.9rem; /* Reducir el tamaño de la fuente de los botones de idioma */
-    }
+  .lang-btn {
+    margin-left: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
 
-    .lang-separator {
-        margin: 0 0.3rem; /* Reducir el margen del separador de idioma */
-    }
+  .lang-separator {
+    margin: 0 0.3rem;
+  }
 
-    main {
-        width: 95%;
-    }
+  main {
+    width: 95%;
+  }
 
-    .glass {
-        padding: 1.2rem;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-        width: 100%;
-        align-self: center !important;
-    }
+  .glass {
+    padding: 1.2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    align-self: center !important;
+  }
 
-    #intro,
-    #projects,
-    #experience,
-    #education,
-    #skills,
-    .contact-form,
-    #contact-info {
-        width: 100%;
-        transform: none !important;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-        align-self: center;
-        scroll-margin-top: 3rem; /* Ajustar el scroll margin para pantallas pequeñas */
-    }
+  #intro,
+  #projects,
+  #experience,
+  #education,
+  #skills,
+  .contact-form,
+  #contact-info {
+    width: 100%;
+    transform: none !important;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    align-self: center;
+    scroll-margin-top: 3rem;
+  }
 
-    h2 {
-        font-size: 2rem;
-        margin-bottom: 1.2rem;
-        text-align: center;
-    }
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    text-align: center;
+  }
 
-    #skills {
-        flex-direction: column; /* Apilar habilidades verticalmente */
-        align-items: center;
-    }
+  #skills {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .skills-container {
-        margin-right: 0;
-        margin-bottom: 1.2rem;
-        text-align: center;
-    }
+  .skills-container {
+    margin-right: 0;
+    margin-bottom: 1.2rem;
+    text-align: center;
+  }
 
-    .lottie-skills-container {
-        width: 120px; /* Reducir el tamaño de la animación Lottie */
-    }
+  .lottie-skills-container {
+    width: 120px;
+  }
 
-    #education {
-        flex-direction: column; /* Apilar educación verticalmente */
-        align-items: center;
-        flex-direction: column;
-    }
+  #education {
+    flex-direction: column;
+    align-items: center;
+    flex-direction: column;
+  }
 
-    .education-container {
-        margin-right: 0;
-        margin-bottom: 1.2rem;
-        text-align: center;
-    }
+  .education-container {
+    margin-right: 0;
+    margin-bottom: 1.2rem;
+    text-align: center;
+  }
 
-    .lottie-education-container {
-        width: 100px; /* Reducir el tamaño de la animación Lottie */
-    }
+  .lottie-education-container {
+    width: 100px;
+  }
 
-    .contact-icons {
-        justify-content: center;
-    }
+  .contact-icons {
+    justify-content: center;
+  }
 
-    .contact-form h2 {
-        text-align: center; /* Centrar el título del formulario en pantallas pequeñas */
-        font-size: 1.8rem; /* Reducir ligeramente el tamaño del título del formulario */
-    }
+  .contact-form h2 {
+    text-align: center;
+    font-size: 1.8rem;
+  }
 
-    .contact-form label {
-        font-size: 1rem; /* Aumentar ligeramente el tamaño de la etiqueta del formulario */
-    }
+  .contact-form label {
+    font-size: 1rem;
+  }
 
-    .contact-form input,
-    .contact-form textarea {
-        font-size: 1rem; /* Aumentar ligeramente el tamaño del texto del input/textarea */
-        padding: 0.6rem; /* Aumentar el padding del input/textarea */
-    }
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
 
-    .contact-form button {
-        font-size: 1rem; /* Aumentar ligeramente el tamaño de la fuente del botón */
-        padding: 0.8rem 1.5rem; /* Aumentar el padding del botón */
-    }
+  .contact-form button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
 
-    #experience,
-    #education {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-    }
+  #experience,
+  #education {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 
-    .experience-item p,
-    .education-item p,
-    .skills-item p,
-    #intro p,
-    .contact-form p,
-    .carousel-caption p,
+  .experience-item p,
+  .education-item p,
+  .skills-item p,
+  #intro p,
+  .contact-form p,
+  .carousel-caption p,
+  .section-description {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .experience-item h3,
+  .education-item h3,
+  .skills-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+  }
+
+  #backToTopBtn {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.6rem;
+    font-size: 1rem;
+  }
+
+  #backToTopBtn svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  #contact-info .contact-icons svg {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  #downloadCVLink {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+
     .section-description {
-        font-size: 1rem; /* Reducir ligeramente el tamaño del texto */
-        line-height: 1.5; /* Ajustar la altura de la línea para mejor legibilidad */
-    }
-
-    .experience-item h3,
-    .education-item h3,
-    .skills-item h3 {
-        font-size: 1.2rem; /* Reducir ligeramente el tamaño del título del item */
-        margin-bottom: 0.3rem;
-    }
-
-    #backToTopBtn {
-        bottom: 1rem; /* Reducir la distancia desde la parte inferior */
-        right: 1rem; /* Reducir la distancia desde la derecha */
-        padding: 0.6rem; /* Reducir el padding del botón */
-        font-size: 1rem; /* Reducir el tamaño del icono */
-    }
-
-    #backToTopBtn svg {
-        width: 1.5rem; /* Reducir el tamaño del icono SVG */
-        height: 1.5rem;
-    }
-
-    #contact-info .contact-icons svg {
-        width: 2rem; /* Reducir el tamaño de los iconos de contacto */
-        height: 2rem;
-    }
-
-    #downloadCVLink {
-        margin-top: 1.5rem; /* Reducir el margen superior del enlace de descarga */
-        font-size: 1rem; /* Ajustar el tamaño de la fuente del enlace de descarga */
-    }
-
-    .section-description {
-        font-size: 0.9rem; /* Reducir ligeramente el tamaño de la descripción de la sección */
-        margin-bottom: 1rem;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
     }
 
     .experience-item,
     .education-item,
     .skills-item {
-        padding: 0.8rem; /* Reducir el padding de los items */
-        margin-bottom: 1rem; /* Reducir el margen inferior de los items */
+      padding: 0.8rem;
+      margin-bottom: 1rem;
     }
 
     #contact-info .contact-form {
-        padding: 1rem; /* Reducir el padding del formulario de contacto en la sección de información */
+      padding: 1rem;
     }
 
-    /* Estilos para el acordeón en pantallas pequeñas */
     .accordion-button {
-        font-size: 1rem;
-        padding: 0.8rem 1rem;
+      font-size: 1rem;
+      padding: 0.8rem 1rem;
     }
-    .accordion-body {
-        padding: 0.8rem 1rem;
-        font-size: 0.9rem;
-    }
-}
 
-@media (min-width: 769px) and (max-width: 992px) {
+    .accordion-body {
+      padding: 0.8rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 992px) {
     main {
-        width: 90%;
+      width: 90%;
     }
 
     .glass {
-        margin-top: 2.5rem;
-        margin-bottom: 2.5rem;
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
     }
 
     #intro,
@@ -707,58 +705,58 @@ h2 {
     #skills,
     .contact-form,
     #contact-info {
-        width: 95%;
-        transform: none !important;
-        scroll-margin-top: 4rem;
+      width: 95%;
+      transform: none !important;
+      scroll-margin-top: 4rem;
     }
 
     h2 {
-        font-size: 2.2rem;
+      font-size: 2.2rem;
     }
-}
+  }
 
-.hidden {
+  .hidden {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
+  }
 
-.hidden.show {
+  .hidden.show {
     opacity: 1;
     transform: translateY(0);
-}
+  }
 
-.section-description {
+  .section-description {
     color: var(--text-color);
     opacity: 0.7;
     margin-bottom: 1.2rem;
     text-align: center;
     font-size: 1rem;
-}
+  }
 
-.experience-item,
-.education-item,
-.skills-item {
+  .experience-item,
+  .education-item,
+  .skills-item {
     border-radius: 0.5rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background-color: rgba(255, 255, 255, 0.05);
     padding: 1rem;
     margin-bottom: 1.5rem;
-}
+  }
 
-.experience-item:last-child,
-.education-item:last-child,
-.skills-item:last-child {
+  .experience-item:last-child,
+  .education-item:last-child,
+  .skills-item:last-child {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
+  }
 
-
-#contact-info .contact-form {
+  #contact-info .contact-form {
     transform: none;
     padding: 1.5rem;
     border-radius: 0.5rem;
-}
+  }
 
-#contact-info .contact-form>* {
+  #contact-info .contact-form > * {
     transform: none;
+  }
 }
