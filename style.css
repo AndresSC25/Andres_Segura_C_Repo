@@ -17,6 +17,7 @@ html {
 
 body {
   background: var(--bg-color);
+  transition: background-color 0.3s ease-in-out;
   min-height: 100vh;
   color: var(--text-color);
   margin: 0;
@@ -24,6 +25,16 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#intro:hover ~ body,
+#projects:hover ~ body,
+#experience:hover ~ body,
+#education:hover ~ body,
+#skills:hover ~ body,
+.contact-form:hover ~ body,
+#contact-info:hover ~ body {
+  background-color: #1a1a1a;
 }
 
 .navbar {
@@ -132,7 +143,6 @@ main > .glass:nth-child(even) {
 #intro {
   align-self: flex-start;
   width: 70%;
-  transform: none;
   margin-top: 5rem;
   scroll-margin-top: 5rem;
 }
@@ -140,21 +150,18 @@ main > .glass:nth-child(even) {
 #projects {
   align-self: center;
   width: 80%;
-  transform: none;
   scroll-margin-top: 5rem;
 }
 
 #experience {
   align-self: flex-end;
   width: 75%;
-  transform: none;
   scroll-margin-top: 5rem;
 }
 
 #education {
   align-self: flex-start;
   width: 65%;
-  transform: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -176,7 +183,6 @@ main > .glass:nth-child(even) {
 #skills {
   align-self: center;
   width: 90%;
-  transform: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -199,7 +205,6 @@ main > .glass:nth-child(even) {
 .contact-form {
   align-self: center;
   width: 85%;
-  transform: none;
   margin-top: 3rem;
   margin-bottom: 3rem;
   scroll-margin-top: 5rem;
@@ -208,10 +213,20 @@ main > .glass:nth-child(even) {
 #contact-info {
   align-self: flex-end;
   width: 85%;
-  transform: none;
   margin-top: 3rem;
   margin-bottom: 3rem;
   scroll-margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#contact-info h2,
+#contact-info .section-description,
+#contact-info .contact-icons {
+  text-align: center;
+  width: 100%;
 }
 
 h2 {
@@ -234,7 +249,9 @@ h2 {
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
 }
 
-#projectCarousel .carousel-inner img {
+#projectCarousel .carousel-inner .carousel-item img {
+  height: 300px;
+  object-fit: cover;
   border-radius: 0;
   clip-path: none;
 }
@@ -388,8 +405,22 @@ h2 {
 
 #downloadCVLink {
   margin-top: 2rem;
-  display: block;
-  text-align: center;
+}
+
+#downloadCVLink.btn-primary {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 0.3rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  width: auto;
+}
+
+#downloadCVLink.btn-primary:hover {
+  background-color: var(--primary-hover);
 }
 
 .accordion-item {
@@ -438,7 +469,6 @@ h2 {
 
 .accordion-button:not(.collapsed)::after {
   background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%2300a1e0' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-  /* Cambiar el color del icono cuando está abierto */
   transform: rotate(-180deg);
 }
 
@@ -458,6 +488,51 @@ h2 {
 #skills .accordion-item h3 {
   margin-bottom: 0;
   color: inherit;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hidden.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-description {
+  color: var(--text-color);
+  opacity: 0.7;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.experience-item,
+.education-item,
+.skills-item {
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.experience-item:last-child,
+.education-item:last-child,
+.skills-item:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#contact-info .contact-form {
+  transform: none;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+#contact-info .contact-form > * {
+  transform: none;
 }
 
 @media (max-width: 768px) {
@@ -658,105 +733,139 @@ h2 {
   }
 
   #downloadCVLink {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  #downloadCVLink.btn-primary {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 0.3rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
     font-size: 1rem;
-
-    .section-description {
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-    }
-
-    .experience-item,
-    .education-item,
-    .skills-item {
-      padding: 0.8rem;
-      margin-bottom: 1rem;
-    }
-
-    #contact-info .contact-form {
-      padding: 1rem;
-    }
-
-    .accordion-button {
-      font-size: 1rem;
-      padding: 0.8rem 1rem;
-    }
-
-    .accordion-body {
-      padding: 0.8rem 1rem;
-      font-size: 0.9rem;
-    }
+    width: auto;
   }
 
-  @media (min-width: 769px) and (max-width: 992px) {
-    main {
-      width: 90%;
-    }
-
-    .glass {
-      margin-top: 2.5rem;
-      margin-bottom: 2.5rem;
-    }
-
-    #intro,
-    #projects,
-    #experience,
-    #education,
-    #skills,
-    .contact-form,
-    #contact-info {
-      width: 95%;
-      transform: none !important;
-      scroll-margin-top: 4rem;
-    }
-
-    h2 {
-      font-size: 2.2rem;
-    }
+  #downloadCVLink.btn-primary:hover {
+    background-color: var(--primary-hover);
   }
 
-  .hidden {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  }
-
-  .hidden.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .section-description {
-    color: var(--text-color);
-    opacity: 0.7;
-    margin-bottom: 1.2rem;
-    text-align: center;
-    font-size: 1rem;
-  }
-
-  .experience-item,
-  .education-item,
-  .skills-item {
+  .accordion-item {
+    background-color: var(--glass-bg);
+    border: 1px solid var(--glass-border);
     border-radius: 0.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: rgba(255, 255, 255, 0.05);
-    padding: 1rem;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+  }
+
+  .accordion-header {
+    margin-bottom: 0;
+  }
+
+  .accordion-button {
+    background-color: transparent;
+    color: var(--text-color);
+    border: none;
+    padding: 1rem 1.25rem;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.2s ease;
+  }
+
+  .accordion-button:focus {
+    z-index: 3;
+    border-color: var(--primary-color);
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(0, 161, 224, 0.25);
+  }
+
+  .accordion-button:not(.collapsed) {
+    color: var(--primary-color);
+    background-color: rgba(0, 161, 224, 0.1);
+    box-shadow: none;
+  }
+
+  .accordion-button::after {
+    filter: invert(100%);
+  }
+
+  .accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%2300a1e0' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    transform: rotate(-180deg);
+  }
+
+  .accordion-body {
+    padding: 1rem 1.25rem;
+    color: var(--text-color);
+  }
+
+  .accordion-body p {
+    margin-bottom: 0;
+  }
+
+  #skills .skills-container {
     margin-bottom: 1.5rem;
   }
 
-  .experience-item:last-child,
-  .education-item:last-child,
-  .skills-item:last-child {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  #skills .accordion-item h3 {
+    margin-bottom: 0;
+    color: inherit;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  main {
+    width: 90%;
   }
 
-  #contact-info .contact-form {
-    transform: none;
-    padding: 1.5rem;
-    border-radius: 0.5rem;
+  .glass {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
   }
 
-  #contact-info .contact-form > * {
-    transform: none;
+  #intro,
+  #projects,
+  #experience,
+  #education,
+  #skills,
+  .contact-form,
+  #contact-info {
+    width: 95%;
+    transform: none !important;
+    scroll-margin-top: 4rem;
   }
+
+  h2 {
+    font-size: 2.2rem;
+  }
+}
+
+#projectCarousel .carousel-inner .carousel-item img {
+  height: 300px;
+  object-fit: cover;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
 }
