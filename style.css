@@ -537,7 +537,7 @@ h2 {
 
 @media (max-width: 768px) {
   body {
-    padding-top: 3rem;
+    padding-top: 4.5rem; /* Ajusta este valor si la barra de navegación es más alta */
     font-size: 1rem;
   }
 
